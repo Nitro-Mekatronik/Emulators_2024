@@ -73,6 +73,8 @@ void Serial_EvaluateCommand(void)
         strcat(Device_Info, FIRMWARE_BRAND);
         strcat(Device_Info, "_");
         strcat(Device_Info, FIRMWARE_MODEL);
+				strcat(Device_Info, "_");
+        strcat(Device_Info, FIRMWARE_SHIELD);
         strcat(Device_Info, "_");
         strcat(Device_Info, FIRMWARE_VER);
 				strcat(Device_Info, "\0");

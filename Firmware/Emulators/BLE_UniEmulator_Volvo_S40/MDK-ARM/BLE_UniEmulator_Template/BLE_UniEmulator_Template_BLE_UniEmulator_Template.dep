@@ -37,7 +37,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B90AAF)
 I (../EEPROM/EEPROM.h)(0x65C0E923)
-I (../ESL/ESL.h)(0x65F43E3A)
+I (../ESL/ESL.h)(0x65F452F7)
 I (../License/License.h)(0x65CDDC45)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../LIN_Slave/LIN_Slave.h)(0x65CF6D9F)
@@ -837,7 +837,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B90AAF)
-F (..\SerialProtocol\SerialProtocol.c)(0x65F43F43)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../SerialProtocol -I ../SmartLED -I ../SerialFIFO -I ../License -I ../EEPROM -I ../Crypto_Algorithms -I ../ESL -I ../LIN_Slave-I.\RTE\_BLE_UniEmulator_Template-IC:\Users\Abdullah\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Abdullah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_template\serialprotocol.o --omf_browse ble_uniemulator_template\serialprotocol.crf --depend ble_uniemulator_template\serialprotocol.d)
+F (..\SerialProtocol\SerialProtocol.c)(0x65F452F7)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../SerialProtocol -I ../SmartLED -I ../SerialFIFO -I ../License -I ../EEPROM -I ../Crypto_Algorithms -I ../ESL -I ../LIN_Slave-I.\RTE\_BLE_UniEmulator_Template-IC:\Users\Abdullah\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Abdullah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_template\serialprotocol.o --omf_browse ble_uniemulator_template\serialprotocol.crf --depend ble_uniemulator_template\serialprotocol.d)
 I (..\SerialProtocol\SerialProtocol.h)(0x65F446EA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
 I (../License/License.h)(0x65CDDC45)
@@ -878,7 +878,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B90AAF)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (../Core/Inc/main.h)(0x65C4D567)
-I (../ESL/ESL.h)(0x65F43E3A)
+I (../ESL/ESL.h)(0x65F452F7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 F (..\SerialProtocol\SerialProtocol.h)(0x65F446EA)()
@@ -1094,13 +1094,13 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x64B90AAF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x64B90AAF)
-I (..\ESL\ESL.h)(0x65F43E3A)
+I (..\ESL\ESL.h)(0x65F452F7)
 I (../SmartLED/SmartLED.h)(0x65C0E8F3)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (../LIN_Slave/LIN_Slave.h)(0x65CF6D9F)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
-F (..\ESL\ESL.h)(0x65F43E3A)()
+F (..\ESL\ESL.h)(0x65F452F7)()
 F (..\LIN_Slave\LIN_Slave.c)(0x65CF75F3)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../SerialProtocol -I ../SmartLED -I ../SerialFIFO -I ../License -I ../EEPROM -I ../Crypto_Algorithms -I ../ESL -I ../LIN_Slave-I.\RTE\_BLE_UniEmulator_Template-IC:\Users\Abdullah\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\Abdullah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_template\lin_slave.o --omf_browse ble_uniemulator_template\lin_slave.crf --depend ble_uniemulator_template\lin_slave.d)
 I (..\LIN_Slave\LIN_Slave.h)(0x65CF6D9F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x64B90AAF)

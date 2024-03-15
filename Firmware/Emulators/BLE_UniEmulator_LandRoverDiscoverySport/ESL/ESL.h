@@ -7,6 +7,7 @@
 #define FIRMWARE_TYPE "ESL" // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway
 #define FIRMWARE_BRAND "Land Rover"
 #define FIRMWARE_MODEL "Discovery"
+#define FIRMWARE_SHIELD "NO"
 #define FIRMWARE_VER "FW 1.0b"
 
 void ESL_Init(void);

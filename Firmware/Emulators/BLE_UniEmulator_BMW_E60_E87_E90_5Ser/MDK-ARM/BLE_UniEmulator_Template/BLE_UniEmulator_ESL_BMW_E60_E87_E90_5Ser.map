@@ -2295,105 +2295,105 @@ Image Symbol Table
     i.SVC_Handler                            0x08005074   Section        0  stm32f1xx_it.o(i.SVC_Handler)
     i.Serial_Decode                          0x08005078   Section        0  serialprotocol.o(i.Serial_Decode)
     i.Serial_EvaluateCommand                 0x0800517c   Section        0  serialprotocol.o(i.Serial_EvaluateCommand)
-    i.Serial_HeadReply                       0x080053e0   Section        0  serialprotocol.o(i.Serial_HeadReply)
-    i.Serial_HeadResponse                    0x080053f0   Section        0  serialprotocol.o(i.Serial_HeadResponse)
-    i.Serial_ReadArray                       0x08005458   Section        0  serialprotocol.o(i.Serial_ReadArray)
-    i.Serial_ReadByte                        0x08005474   Section        0  serialprotocol.o(i.Serial_ReadByte)
-    i.Serial_WriteArray                      0x0800548c   Section        0  serialprotocol.o(i.Serial_WriteArray)
-    i.Serial_WriteByte                       0x080054a8   Section        0  serialprotocol.o(i.Serial_WriteByte)
-    i.Serial_WriteChecksum                   0x080054d0   Section        0  serialprotocol.o(i.Serial_WriteChecksum)
-    i.Serial_WriteStr                        0x080054f0   Section        0  serialprotocol.o(i.Serial_WriteStr)
-    i.ShiftRows                              0x0800550a   Section        0  aes.o(i.ShiftRows)
-    ShiftRows                                0x0800550b   Thumb Code    50  aes.o(i.ShiftRows)
-    i.SmartLED_Check                         0x0800553c   Section        0  smartled.o(i.SmartLED_Check)
-    i.SmartLED_Init                          0x080055a0   Section        0  smartled.o(i.SmartLED_Init)
-    i.SmartLED_Off                           0x08005600   Section        0  smartled.o(i.SmartLED_Off)
-    i.SmartLED_On                            0x0800561e   Section        0  smartled.o(i.SmartLED_On)
-    i.SmartLED_SetMode                       0x0800563c   Section        0  smartled.o(i.SmartLED_SetMode)
-    i.SmartLED_Toggle                        0x080056b4   Section        0  smartled.o(i.SmartLED_Toggle)
-    i.SmartLED_Update                        0x080056cc   Section        0  smartled.o(i.SmartLED_Update)
-    i.SubBytes                               0x080056f4   Section        0  aes.o(i.SubBytes)
-    SubBytes                                 0x080056f5   Thumb Code    46  aes.o(i.SubBytes)
-    i.SysTick_Handler                        0x08005728   Section        0  stm32f1xx_it.o(i.SysTick_Handler)
-    i.SystemClock_Config                     0x08005734   Section        0  main.o(i.SystemClock_Config)
-    i.SystemInit                             0x080057c4   Section        0  system_stm32f1xx.o(i.SystemInit)
-    i.TIM_Base_SetConfig                     0x080057c8   Section        0  stm32f1xx_hal_tim.o(i.TIM_Base_SetConfig)
-    i.TIM_CCxChannelCmd                      0x0800583c   Section        0  stm32f1xx_hal_tim.o(i.TIM_CCxChannelCmd)
-    i.TIM_ETR_SetConfig                      0x0800585e   Section        0  stm32f1xx_hal_tim.o(i.TIM_ETR_SetConfig)
-    i.TIM_ITRx_SetConfig                     0x08005874   Section        0  stm32f1xx_hal_tim.o(i.TIM_ITRx_SetConfig)
-    TIM_ITRx_SetConfig                       0x08005875   Thumb Code    18  stm32f1xx_hal_tim.o(i.TIM_ITRx_SetConfig)
-    i.TIM_OC1_SetConfig                      0x08005888   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC1_SetConfig)
-    TIM_OC1_SetConfig                        0x08005889   Thumb Code    90  stm32f1xx_hal_tim.o(i.TIM_OC1_SetConfig)
-    i.TIM_OC2_SetConfig                      0x080058e8   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC2_SetConfig)
-    i.TIM_OC3_SetConfig                      0x08005950   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC3_SetConfig)
-    TIM_OC3_SetConfig                        0x08005951   Thumb Code    98  stm32f1xx_hal_tim.o(i.TIM_OC3_SetConfig)
-    i.TIM_OC4_SetConfig                      0x080059b8   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC4_SetConfig)
-    TIM_OC4_SetConfig                        0x080059b9   Thumb Code    68  stm32f1xx_hal_tim.o(i.TIM_OC4_SetConfig)
-    i.TIM_TI1_ConfigInputStage               0x08005a00   Section        0  stm32f1xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
-    TIM_TI1_ConfigInputStage                 0x08005a01   Thumb Code    38  stm32f1xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
-    i.TIM_TI2_ConfigInputStage               0x08005a26   Section        0  stm32f1xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
-    TIM_TI2_ConfigInputStage                 0x08005a27   Thumb Code    40  stm32f1xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
-    i.UART1_Available                        0x08005a50   Section        0  serialfifo.o(i.UART1_Available)
-    i.UART1_Init                             0x08005a5c   Section        0  serialfifo.o(i.UART1_Init)
-    i.UART1_Read                             0x08005a74   Section        0  serialfifo.o(i.UART1_Read)
-    i.UART1_Transmit_IRQ                     0x08005af8   Section        0  serialfifo.o(i.UART1_Transmit_IRQ)
-    i.UART1_Write                            0x08005b94   Section        0  serialfifo.o(i.UART1_Write)
-    i.UART3_Available                        0x08005c64   Section        0  serialfifo.o(i.UART3_Available)
-    i.UART3_Init                             0x08005c70   Section        0  serialfifo.o(i.UART3_Init)
-    i.UART3_Read                             0x08005c88   Section        0  serialfifo.o(i.UART3_Read)
-    i.UART3_Transmit_IRQ                     0x08005d0c   Section        0  serialfifo.o(i.UART3_Transmit_IRQ)
-    i.UART3_Write                            0x08005da8   Section        0  serialfifo.o(i.UART3_Write)
-    i.UART_DMAError                          0x08005e74   Section        0  stm32f1xx_hal_uart.o(i.UART_DMAError)
-    UART_DMAError                            0x08005e75   Thumb Code    80  stm32f1xx_hal_uart.o(i.UART_DMAError)
-    i.UART_DMAReceiveCplt                    0x08005ec4   Section        0  stm32f1xx_hal_uart.o(i.UART_DMAReceiveCplt)
-    UART_DMAReceiveCplt                      0x08005ec5   Thumb Code   180  stm32f1xx_hal_uart.o(i.UART_DMAReceiveCplt)
-    i.UART_DMARxHalfCplt                     0x08005f78   Section        0  stm32f1xx_hal_uart.o(i.UART_DMARxHalfCplt)
-    UART_DMARxHalfCplt                       0x08005f79   Thumb Code    36  stm32f1xx_hal_uart.o(i.UART_DMARxHalfCplt)
-    i.UART_EndRxTransfer                     0x08005f9c   Section        0  stm32f1xx_hal_uart.o(i.UART_EndRxTransfer)
-    UART_EndRxTransfer                       0x08005f9d   Thumb Code   108  stm32f1xx_hal_uart.o(i.UART_EndRxTransfer)
-    i.UART_EndTxTransfer                     0x08006008   Section        0  stm32f1xx_hal_uart.o(i.UART_EndTxTransfer)
-    UART_EndTxTransfer                       0x08006009   Thumb Code    38  stm32f1xx_hal_uart.o(i.UART_EndTxTransfer)
-    i.UART_SetConfig                         0x08006030   Section        0  stm32f1xx_hal_uart.o(i.UART_SetConfig)
-    UART_SetConfig                           0x08006031   Thumb Code   248  stm32f1xx_hal_uart.o(i.UART_SetConfig)
-    i.UART_Start_Receive_DMA                 0x0800612c   Section        0  stm32f1xx_hal_uart.o(i.UART_Start_Receive_DMA)
-    i.USART1_IRQHandler                      0x080061f4   Section        0  stm32f1xx_it.o(i.USART1_IRQHandler)
-    i.USART3_IRQHandler                      0x080062f8   Section        0  stm32f1xx_it.o(i.USART3_IRQHandler)
-    i.USB_LP_CAN1_RX0_IRQHandler             0x080063fc   Section        0  stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler)
-    i.UsageFault_Handler                     0x0800640c   Section        0  stm32f1xx_it.o(i.UsageFault_Handler)
-    i.XorWithIv                              0x08006410   Section        0  aes.o(i.XorWithIv)
-    XorWithIv                                0x08006411   Thumb Code    26  aes.o(i.XorWithIv)
-    i.__NVIC_GetPriorityGrouping             0x0800642c   Section        0  stm32f1xx_hal_cortex.o(i.__NVIC_GetPriorityGrouping)
-    __NVIC_GetPriorityGrouping               0x0800642d   Thumb Code    10  stm32f1xx_hal_cortex.o(i.__NVIC_GetPriorityGrouping)
-    i.__NVIC_SetPriority                     0x0800643c   Section        0  stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority)
-    __NVIC_SetPriority                       0x0800643d   Thumb Code    32  stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority)
-    i.create_key_iv                          0x08006464   Section        0  license.o(i.create_key_iv)
-    i.deinitEverything                       0x080064a8   Section        0  main.o(i.deinitEverything)
-    i.main                                   0x08006578   Section        0  main.o(i.main)
-    i.md5_final                              0x08006658   Section        0  md5.o(i.md5_final)
-    i.md5_init                               0x08006744   Section        0  md5.o(i.md5_init)
-    i.md5_transform                          0x0800676c   Section        0  md5.o(i.md5_transform)
-    i.md5_update                             0x080071ec   Section        0  md5.o(i.md5_update)
-    i.read_and_decrypt_unique_id             0x08007230   Section        0  license.o(i.read_and_decrypt_unique_id)
-    i.sha256_final                           0x080072f8   Section        0  sha256.o(i.sha256_final)
-    i.sha256_init                            0x08007434   Section        0  sha256.o(i.sha256_init)
-    i.sha256_transform                       0x08007480   Section        0  sha256.o(i.sha256_transform)
-    i.sha256_update                          0x080076b4   Section        0  sha256.o(i.sha256_update)
-    i.shiftArrayRight                        0x080076f8   Section        0  license.o(i.shiftArrayRight)
-    i.xtime                                  0x08007714   Section        0  aes.o(i.xtime)
-    xtime                                    0x08007715   Thumb Code    20  aes.o(i.xtime)
-    .constdata                               0x08007728   Section       18  stm32f1xx_hal_rcc.o(.constdata)
-    aPLLMULFactorTable                       0x08007728   Data          16  stm32f1xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x08007738   Data           2  stm32f1xx_hal_rcc.o(.constdata)
-    .constdata                               0x0800773a   Section       24  system_stm32f1xx.o(.constdata)
-    .constdata                               0x08007752   Section      352  license.o(.constdata)
-    .constdata                               0x080078b4   Section       80  eeprom.o(.constdata)
-    .constdata                               0x08007904   Section      523  aes.o(.constdata)
-    sbox                                     0x08007904   Data         256  aes.o(.constdata)
-    rsbox                                    0x08007a04   Data         256  aes.o(.constdata)
-    Rcon                                     0x08007b04   Data          11  aes.o(.constdata)
-    .constdata                               0x08007b10   Section      256  sha256.o(.constdata)
-    k                                        0x08007b10   Data         256  sha256.o(.constdata)
-    .constdata                               0x08007c10   Section      136  esl.o(.constdata)
+    i.Serial_HeadReply                       0x080053e8   Section        0  serialprotocol.o(i.Serial_HeadReply)
+    i.Serial_HeadResponse                    0x080053f8   Section        0  serialprotocol.o(i.Serial_HeadResponse)
+    i.Serial_ReadArray                       0x08005460   Section        0  serialprotocol.o(i.Serial_ReadArray)
+    i.Serial_ReadByte                        0x0800547c   Section        0  serialprotocol.o(i.Serial_ReadByte)
+    i.Serial_WriteArray                      0x08005494   Section        0  serialprotocol.o(i.Serial_WriteArray)
+    i.Serial_WriteByte                       0x080054b0   Section        0  serialprotocol.o(i.Serial_WriteByte)
+    i.Serial_WriteChecksum                   0x080054d8   Section        0  serialprotocol.o(i.Serial_WriteChecksum)
+    i.Serial_WriteStr                        0x080054f8   Section        0  serialprotocol.o(i.Serial_WriteStr)
+    i.ShiftRows                              0x08005512   Section        0  aes.o(i.ShiftRows)
+    ShiftRows                                0x08005513   Thumb Code    50  aes.o(i.ShiftRows)
+    i.SmartLED_Check                         0x08005544   Section        0  smartled.o(i.SmartLED_Check)
+    i.SmartLED_Init                          0x080055a8   Section        0  smartled.o(i.SmartLED_Init)
+    i.SmartLED_Off                           0x08005608   Section        0  smartled.o(i.SmartLED_Off)
+    i.SmartLED_On                            0x08005626   Section        0  smartled.o(i.SmartLED_On)
+    i.SmartLED_SetMode                       0x08005644   Section        0  smartled.o(i.SmartLED_SetMode)
+    i.SmartLED_Toggle                        0x080056bc   Section        0  smartled.o(i.SmartLED_Toggle)
+    i.SmartLED_Update                        0x080056d4   Section        0  smartled.o(i.SmartLED_Update)
+    i.SubBytes                               0x080056fc   Section        0  aes.o(i.SubBytes)
+    SubBytes                                 0x080056fd   Thumb Code    46  aes.o(i.SubBytes)
+    i.SysTick_Handler                        0x08005730   Section        0  stm32f1xx_it.o(i.SysTick_Handler)
+    i.SystemClock_Config                     0x0800573c   Section        0  main.o(i.SystemClock_Config)
+    i.SystemInit                             0x080057cc   Section        0  system_stm32f1xx.o(i.SystemInit)
+    i.TIM_Base_SetConfig                     0x080057d0   Section        0  stm32f1xx_hal_tim.o(i.TIM_Base_SetConfig)
+    i.TIM_CCxChannelCmd                      0x08005844   Section        0  stm32f1xx_hal_tim.o(i.TIM_CCxChannelCmd)
+    i.TIM_ETR_SetConfig                      0x08005866   Section        0  stm32f1xx_hal_tim.o(i.TIM_ETR_SetConfig)
+    i.TIM_ITRx_SetConfig                     0x0800587c   Section        0  stm32f1xx_hal_tim.o(i.TIM_ITRx_SetConfig)
+    TIM_ITRx_SetConfig                       0x0800587d   Thumb Code    18  stm32f1xx_hal_tim.o(i.TIM_ITRx_SetConfig)
+    i.TIM_OC1_SetConfig                      0x08005890   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC1_SetConfig)
+    TIM_OC1_SetConfig                        0x08005891   Thumb Code    90  stm32f1xx_hal_tim.o(i.TIM_OC1_SetConfig)
+    i.TIM_OC2_SetConfig                      0x080058f0   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC2_SetConfig)
+    i.TIM_OC3_SetConfig                      0x08005958   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC3_SetConfig)
+    TIM_OC3_SetConfig                        0x08005959   Thumb Code    98  stm32f1xx_hal_tim.o(i.TIM_OC3_SetConfig)
+    i.TIM_OC4_SetConfig                      0x080059c0   Section        0  stm32f1xx_hal_tim.o(i.TIM_OC4_SetConfig)
+    TIM_OC4_SetConfig                        0x080059c1   Thumb Code    68  stm32f1xx_hal_tim.o(i.TIM_OC4_SetConfig)
+    i.TIM_TI1_ConfigInputStage               0x08005a08   Section        0  stm32f1xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
+    TIM_TI1_ConfigInputStage                 0x08005a09   Thumb Code    38  stm32f1xx_hal_tim.o(i.TIM_TI1_ConfigInputStage)
+    i.TIM_TI2_ConfigInputStage               0x08005a2e   Section        0  stm32f1xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
+    TIM_TI2_ConfigInputStage                 0x08005a2f   Thumb Code    40  stm32f1xx_hal_tim.o(i.TIM_TI2_ConfigInputStage)
+    i.UART1_Available                        0x08005a58   Section        0  serialfifo.o(i.UART1_Available)
+    i.UART1_Init                             0x08005a64   Section        0  serialfifo.o(i.UART1_Init)
+    i.UART1_Read                             0x08005a7c   Section        0  serialfifo.o(i.UART1_Read)
+    i.UART1_Transmit_IRQ                     0x08005b00   Section        0  serialfifo.o(i.UART1_Transmit_IRQ)
+    i.UART1_Write                            0x08005b9c   Section        0  serialfifo.o(i.UART1_Write)
+    i.UART3_Available                        0x08005c6c   Section        0  serialfifo.o(i.UART3_Available)
+    i.UART3_Init                             0x08005c78   Section        0  serialfifo.o(i.UART3_Init)
+    i.UART3_Read                             0x08005c90   Section        0  serialfifo.o(i.UART3_Read)
+    i.UART3_Transmit_IRQ                     0x08005d14   Section        0  serialfifo.o(i.UART3_Transmit_IRQ)
+    i.UART3_Write                            0x08005db0   Section        0  serialfifo.o(i.UART3_Write)
+    i.UART_DMAError                          0x08005e7c   Section        0  stm32f1xx_hal_uart.o(i.UART_DMAError)
+    UART_DMAError                            0x08005e7d   Thumb Code    80  stm32f1xx_hal_uart.o(i.UART_DMAError)
+    i.UART_DMAReceiveCplt                    0x08005ecc   Section        0  stm32f1xx_hal_uart.o(i.UART_DMAReceiveCplt)
+    UART_DMAReceiveCplt                      0x08005ecd   Thumb Code   180  stm32f1xx_hal_uart.o(i.UART_DMAReceiveCplt)
+    i.UART_DMARxHalfCplt                     0x08005f80   Section        0  stm32f1xx_hal_uart.o(i.UART_DMARxHalfCplt)
+    UART_DMARxHalfCplt                       0x08005f81   Thumb Code    36  stm32f1xx_hal_uart.o(i.UART_DMARxHalfCplt)
+    i.UART_EndRxTransfer                     0x08005fa4   Section        0  stm32f1xx_hal_uart.o(i.UART_EndRxTransfer)
+    UART_EndRxTransfer                       0x08005fa5   Thumb Code   108  stm32f1xx_hal_uart.o(i.UART_EndRxTransfer)
+    i.UART_EndTxTransfer                     0x08006010   Section        0  stm32f1xx_hal_uart.o(i.UART_EndTxTransfer)
+    UART_EndTxTransfer                       0x08006011   Thumb Code    38  stm32f1xx_hal_uart.o(i.UART_EndTxTransfer)
+    i.UART_SetConfig                         0x08006038   Section        0  stm32f1xx_hal_uart.o(i.UART_SetConfig)
+    UART_SetConfig                           0x08006039   Thumb Code   248  stm32f1xx_hal_uart.o(i.UART_SetConfig)
+    i.UART_Start_Receive_DMA                 0x08006134   Section        0  stm32f1xx_hal_uart.o(i.UART_Start_Receive_DMA)
+    i.USART1_IRQHandler                      0x080061fc   Section        0  stm32f1xx_it.o(i.USART1_IRQHandler)
+    i.USART3_IRQHandler                      0x08006300   Section        0  stm32f1xx_it.o(i.USART3_IRQHandler)
+    i.USB_LP_CAN1_RX0_IRQHandler             0x08006404   Section        0  stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler)
+    i.UsageFault_Handler                     0x08006414   Section        0  stm32f1xx_it.o(i.UsageFault_Handler)
+    i.XorWithIv                              0x08006418   Section        0  aes.o(i.XorWithIv)
+    XorWithIv                                0x08006419   Thumb Code    26  aes.o(i.XorWithIv)
+    i.__NVIC_GetPriorityGrouping             0x08006434   Section        0  stm32f1xx_hal_cortex.o(i.__NVIC_GetPriorityGrouping)
+    __NVIC_GetPriorityGrouping               0x08006435   Thumb Code    10  stm32f1xx_hal_cortex.o(i.__NVIC_GetPriorityGrouping)
+    i.__NVIC_SetPriority                     0x08006444   Section        0  stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority)
+    __NVIC_SetPriority                       0x08006445   Thumb Code    32  stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority)
+    i.create_key_iv                          0x0800646c   Section        0  license.o(i.create_key_iv)
+    i.deinitEverything                       0x080064b0   Section        0  main.o(i.deinitEverything)
+    i.main                                   0x08006580   Section        0  main.o(i.main)
+    i.md5_final                              0x08006660   Section        0  md5.o(i.md5_final)
+    i.md5_init                               0x0800674c   Section        0  md5.o(i.md5_init)
+    i.md5_transform                          0x08006774   Section        0  md5.o(i.md5_transform)
+    i.md5_update                             0x080071f4   Section        0  md5.o(i.md5_update)
+    i.read_and_decrypt_unique_id             0x08007238   Section        0  license.o(i.read_and_decrypt_unique_id)
+    i.sha256_final                           0x08007300   Section        0  sha256.o(i.sha256_final)
+    i.sha256_init                            0x0800743c   Section        0  sha256.o(i.sha256_init)
+    i.sha256_transform                       0x08007488   Section        0  sha256.o(i.sha256_transform)
+    i.sha256_update                          0x080076bc   Section        0  sha256.o(i.sha256_update)
+    i.shiftArrayRight                        0x08007700   Section        0  license.o(i.shiftArrayRight)
+    i.xtime                                  0x0800771c   Section        0  aes.o(i.xtime)
+    xtime                                    0x0800771d   Thumb Code    20  aes.o(i.xtime)
+    .constdata                               0x08007730   Section       18  stm32f1xx_hal_rcc.o(.constdata)
+    aPLLMULFactorTable                       0x08007730   Data          16  stm32f1xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x08007740   Data           2  stm32f1xx_hal_rcc.o(.constdata)
+    .constdata                               0x08007742   Section       24  system_stm32f1xx.o(.constdata)
+    .constdata                               0x0800775a   Section      352  license.o(.constdata)
+    .constdata                               0x080078bc   Section       80  eeprom.o(.constdata)
+    .constdata                               0x0800790c   Section      523  aes.o(.constdata)
+    sbox                                     0x0800790c   Data         256  aes.o(.constdata)
+    rsbox                                    0x08007a0c   Data         256  aes.o(.constdata)
+    Rcon                                     0x08007b0c   Data          11  aes.o(.constdata)
+    .constdata                               0x08007b18   Section      256  sha256.o(.constdata)
+    k                                        0x08007b18   Data         256  sha256.o(.constdata)
+    .constdata                               0x08007c18   Section      136  esl.o(.constdata)
     .data                                    0x20000000   Section       12  main.o(.data)
     .data                                    0x2000000c   Section        9  stm32f1xx_hal.o(.data)
     .data                                    0x20000018   Section        4  system_stm32f1xx.o(.data)
@@ -2706,66 +2706,66 @@ Image Symbol Table
     PendSV_Handler                           0x08005049   Thumb Code     2  stm32f1xx_it.o(i.PendSV_Handler)
     SVC_Handler                              0x08005075   Thumb Code     2  stm32f1xx_it.o(i.SVC_Handler)
     Serial_Decode                            0x08005079   Thumb Code   256  serialprotocol.o(i.Serial_Decode)
-    Serial_EvaluateCommand                   0x0800517d   Thumb Code   496  serialprotocol.o(i.Serial_EvaluateCommand)
-    Serial_HeadReply                         0x080053e1   Thumb Code    14  serialprotocol.o(i.Serial_HeadReply)
-    Serial_HeadResponse                      0x080053f1   Thumb Code   100  serialprotocol.o(i.Serial_HeadResponse)
-    Serial_ReadArray                         0x08005459   Thumb Code    28  serialprotocol.o(i.Serial_ReadArray)
-    Serial_ReadByte                          0x08005475   Thumb Code    18  serialprotocol.o(i.Serial_ReadByte)
-    Serial_WriteArray                        0x0800548d   Thumb Code    28  serialprotocol.o(i.Serial_WriteArray)
-    Serial_WriteByte                         0x080054a9   Thumb Code    36  serialprotocol.o(i.Serial_WriteByte)
-    Serial_WriteChecksum                     0x080054d1   Thumb Code    26  serialprotocol.o(i.Serial_WriteChecksum)
-    Serial_WriteStr                          0x080054f1   Thumb Code    26  serialprotocol.o(i.Serial_WriteStr)
-    SmartLED_Check                           0x0800553d   Thumb Code   100  smartled.o(i.SmartLED_Check)
-    SmartLED_Init                            0x080055a1   Thumb Code    86  smartled.o(i.SmartLED_Init)
-    SmartLED_Off                             0x08005601   Thumb Code    30  smartled.o(i.SmartLED_Off)
-    SmartLED_On                              0x0800561f   Thumb Code    30  smartled.o(i.SmartLED_On)
-    SmartLED_SetMode                         0x0800563d   Thumb Code   110  smartled.o(i.SmartLED_SetMode)
-    SmartLED_Toggle                          0x080056b5   Thumb Code    24  smartled.o(i.SmartLED_Toggle)
-    SmartLED_Update                          0x080056cd   Thumb Code    30  smartled.o(i.SmartLED_Update)
-    SysTick_Handler                          0x08005729   Thumb Code    12  stm32f1xx_it.o(i.SysTick_Handler)
-    SystemClock_Config                       0x08005735   Thumb Code   144  main.o(i.SystemClock_Config)
-    SystemInit                               0x080057c5   Thumb Code     2  system_stm32f1xx.o(i.SystemInit)
-    TIM_Base_SetConfig                       0x080057c9   Thumb Code   104  stm32f1xx_hal_tim.o(i.TIM_Base_SetConfig)
-    TIM_CCxChannelCmd                        0x0800583d   Thumb Code    34  stm32f1xx_hal_tim.o(i.TIM_CCxChannelCmd)
-    TIM_ETR_SetConfig                        0x0800585f   Thumb Code    22  stm32f1xx_hal_tim.o(i.TIM_ETR_SetConfig)
-    TIM_OC2_SetConfig                        0x080058e9   Thumb Code   100  stm32f1xx_hal_tim.o(i.TIM_OC2_SetConfig)
-    UART1_Available                          0x08005a51   Thumb Code     8  serialfifo.o(i.UART1_Available)
-    UART1_Init                               0x08005a5d   Thumb Code    14  serialfifo.o(i.UART1_Init)
-    UART1_Read                               0x08005a75   Thumb Code   126  serialfifo.o(i.UART1_Read)
-    UART1_Transmit_IRQ                       0x08005af9   Thumb Code   146  serialfifo.o(i.UART1_Transmit_IRQ)
-    UART1_Write                              0x08005b95   Thumb Code   198  serialfifo.o(i.UART1_Write)
-    UART3_Available                          0x08005c65   Thumb Code     8  serialfifo.o(i.UART3_Available)
-    UART3_Init                               0x08005c71   Thumb Code    14  serialfifo.o(i.UART3_Init)
-    UART3_Read                               0x08005c89   Thumb Code   126  serialfifo.o(i.UART3_Read)
-    UART3_Transmit_IRQ                       0x08005d0d   Thumb Code   146  serialfifo.o(i.UART3_Transmit_IRQ)
-    UART3_Write                              0x08005da9   Thumb Code   194  serialfifo.o(i.UART3_Write)
-    UART_Start_Receive_DMA                   0x0800612d   Thumb Code   186  stm32f1xx_hal_uart.o(i.UART_Start_Receive_DMA)
-    USART1_IRQHandler                        0x080061f5   Thumb Code   244  stm32f1xx_it.o(i.USART1_IRQHandler)
-    USART3_IRQHandler                        0x080062f9   Thumb Code   244  stm32f1xx_it.o(i.USART3_IRQHandler)
-    USB_LP_CAN1_RX0_IRQHandler               0x080063fd   Thumb Code    10  stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler)
-    UsageFault_Handler                       0x0800640d   Thumb Code     4  stm32f1xx_it.o(i.UsageFault_Handler)
-    create_key_iv                            0x08006465   Thumb Code    60  license.o(i.create_key_iv)
-    deinitEverything                         0x080064a9   Thumb Code   158  main.o(i.deinitEverything)
-    main                                     0x08006579   Thumb Code   190  main.o(i.main)
-    md5_final                                0x08006659   Thumb Code   234  md5.o(i.md5_final)
-    md5_init                                 0x08006745   Thumb Code    30  md5.o(i.md5_init)
-    md5_transform                            0x0800676d   Thumb Code  2434  md5.o(i.md5_transform)
-    md5_update                               0x080071ed   Thumb Code    68  md5.o(i.md5_update)
-    read_and_decrypt_unique_id               0x08007231   Thumb Code   182  license.o(i.read_and_decrypt_unique_id)
-    sha256_final                             0x080072f9   Thumb Code   316  sha256.o(i.sha256_final)
-    sha256_init                              0x08007435   Thumb Code    44  sha256.o(i.sha256_init)
-    sha256_transform                         0x08007481   Thumb Code   558  sha256.o(i.sha256_transform)
-    sha256_update                            0x080076b5   Thumb Code    68  sha256.o(i.sha256_update)
-    shiftArrayRight                          0x080076f9   Thumb Code    28  license.o(i.shiftArrayRight)
-    AHBPrescTable                            0x0800773a   Data          16  system_stm32f1xx.o(.constdata)
-    APBPrescTable                            0x0800774a   Data           8  system_stm32f1xx.o(.constdata)
-    private_passwords                        0x08007752   Data         128  license.o(.constdata)
-    public_passwords                         0x080077d2   Data         128  license.o(.constdata)
-    IVs                                      0x08007852   Data          96  license.o(.constdata)
-    eepromInfo                               0x080078b4   Data          80  eeprom.o(.constdata)
-    BmwResponseData                          0x08007c10   Data         136  esl.o(.constdata)
-    Region$$Table$$Base                      0x08007c98   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08007cb8   Number         0  anon$$obj.o(Region$$Table)
+    Serial_EvaluateCommand                   0x0800517d   Thumb Code   504  serialprotocol.o(i.Serial_EvaluateCommand)
+    Serial_HeadReply                         0x080053e9   Thumb Code    14  serialprotocol.o(i.Serial_HeadReply)
+    Serial_HeadResponse                      0x080053f9   Thumb Code   100  serialprotocol.o(i.Serial_HeadResponse)
+    Serial_ReadArray                         0x08005461   Thumb Code    28  serialprotocol.o(i.Serial_ReadArray)
+    Serial_ReadByte                          0x0800547d   Thumb Code    18  serialprotocol.o(i.Serial_ReadByte)
+    Serial_WriteArray                        0x08005495   Thumb Code    28  serialprotocol.o(i.Serial_WriteArray)
+    Serial_WriteByte                         0x080054b1   Thumb Code    36  serialprotocol.o(i.Serial_WriteByte)
+    Serial_WriteChecksum                     0x080054d9   Thumb Code    26  serialprotocol.o(i.Serial_WriteChecksum)
+    Serial_WriteStr                          0x080054f9   Thumb Code    26  serialprotocol.o(i.Serial_WriteStr)
+    SmartLED_Check                           0x08005545   Thumb Code   100  smartled.o(i.SmartLED_Check)
+    SmartLED_Init                            0x080055a9   Thumb Code    86  smartled.o(i.SmartLED_Init)
+    SmartLED_Off                             0x08005609   Thumb Code    30  smartled.o(i.SmartLED_Off)
+    SmartLED_On                              0x08005627   Thumb Code    30  smartled.o(i.SmartLED_On)
+    SmartLED_SetMode                         0x08005645   Thumb Code   110  smartled.o(i.SmartLED_SetMode)
+    SmartLED_Toggle                          0x080056bd   Thumb Code    24  smartled.o(i.SmartLED_Toggle)
+    SmartLED_Update                          0x080056d5   Thumb Code    30  smartled.o(i.SmartLED_Update)
+    SysTick_Handler                          0x08005731   Thumb Code    12  stm32f1xx_it.o(i.SysTick_Handler)
+    SystemClock_Config                       0x0800573d   Thumb Code   144  main.o(i.SystemClock_Config)
+    SystemInit                               0x080057cd   Thumb Code     2  system_stm32f1xx.o(i.SystemInit)
+    TIM_Base_SetConfig                       0x080057d1   Thumb Code   104  stm32f1xx_hal_tim.o(i.TIM_Base_SetConfig)
+    TIM_CCxChannelCmd                        0x08005845   Thumb Code    34  stm32f1xx_hal_tim.o(i.TIM_CCxChannelCmd)
+    TIM_ETR_SetConfig                        0x08005867   Thumb Code    22  stm32f1xx_hal_tim.o(i.TIM_ETR_SetConfig)
+    TIM_OC2_SetConfig                        0x080058f1   Thumb Code   100  stm32f1xx_hal_tim.o(i.TIM_OC2_SetConfig)
+    UART1_Available                          0x08005a59   Thumb Code     8  serialfifo.o(i.UART1_Available)
+    UART1_Init                               0x08005a65   Thumb Code    14  serialfifo.o(i.UART1_Init)
+    UART1_Read                               0x08005a7d   Thumb Code   126  serialfifo.o(i.UART1_Read)
+    UART1_Transmit_IRQ                       0x08005b01   Thumb Code   146  serialfifo.o(i.UART1_Transmit_IRQ)
+    UART1_Write                              0x08005b9d   Thumb Code   198  serialfifo.o(i.UART1_Write)
+    UART3_Available                          0x08005c6d   Thumb Code     8  serialfifo.o(i.UART3_Available)
+    UART3_Init                               0x08005c79   Thumb Code    14  serialfifo.o(i.UART3_Init)
+    UART3_Read                               0x08005c91   Thumb Code   126  serialfifo.o(i.UART3_Read)
+    UART3_Transmit_IRQ                       0x08005d15   Thumb Code   146  serialfifo.o(i.UART3_Transmit_IRQ)
+    UART3_Write                              0x08005db1   Thumb Code   194  serialfifo.o(i.UART3_Write)
+    UART_Start_Receive_DMA                   0x08006135   Thumb Code   186  stm32f1xx_hal_uart.o(i.UART_Start_Receive_DMA)
+    USART1_IRQHandler                        0x080061fd   Thumb Code   244  stm32f1xx_it.o(i.USART1_IRQHandler)
+    USART3_IRQHandler                        0x08006301   Thumb Code   244  stm32f1xx_it.o(i.USART3_IRQHandler)
+    USB_LP_CAN1_RX0_IRQHandler               0x08006405   Thumb Code    10  stm32f1xx_it.o(i.USB_LP_CAN1_RX0_IRQHandler)
+    UsageFault_Handler                       0x08006415   Thumb Code     4  stm32f1xx_it.o(i.UsageFault_Handler)
+    create_key_iv                            0x0800646d   Thumb Code    60  license.o(i.create_key_iv)
+    deinitEverything                         0x080064b1   Thumb Code   158  main.o(i.deinitEverything)
+    main                                     0x08006581   Thumb Code   190  main.o(i.main)
+    md5_final                                0x08006661   Thumb Code   234  md5.o(i.md5_final)
+    md5_init                                 0x0800674d   Thumb Code    30  md5.o(i.md5_init)
+    md5_transform                            0x08006775   Thumb Code  2434  md5.o(i.md5_transform)
+    md5_update                               0x080071f5   Thumb Code    68  md5.o(i.md5_update)
+    read_and_decrypt_unique_id               0x08007239   Thumb Code   182  license.o(i.read_and_decrypt_unique_id)
+    sha256_final                             0x08007301   Thumb Code   316  sha256.o(i.sha256_final)
+    sha256_init                              0x0800743d   Thumb Code    44  sha256.o(i.sha256_init)
+    sha256_transform                         0x08007489   Thumb Code   558  sha256.o(i.sha256_transform)
+    sha256_update                            0x080076bd   Thumb Code    68  sha256.o(i.sha256_update)
+    shiftArrayRight                          0x08007701   Thumb Code    28  license.o(i.shiftArrayRight)
+    AHBPrescTable                            0x08007742   Data          16  system_stm32f1xx.o(.constdata)
+    APBPrescTable                            0x08007752   Data           8  system_stm32f1xx.o(.constdata)
+    private_passwords                        0x0800775a   Data         128  license.o(.constdata)
+    public_passwords                         0x080077da   Data         128  license.o(.constdata)
+    IVs                                      0x0800785a   Data          96  license.o(.constdata)
+    eepromInfo                               0x080078bc   Data          80  eeprom.o(.constdata)
+    BmwResponseData                          0x08007c18   Data         136  esl.o(.constdata)
+    Region$$Table$$Base                      0x08007ca0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08007cc0   Number         0  anon$$obj.o(Region$$Table)
     beepCounter                              0x20000000   Data           1  main.o(.data)
     hcrc                                     0x20000004   Data           8  main.o(.data)
     uwTick                                   0x2000000c   Data           4  stm32f1xx_hal.o(.data)
@@ -2818,9 +2818,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00007cf4, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00007cfc, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00007cb8, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00007cc0, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3057,115 +3057,115 @@ Memory Map of the image
     0x08005074   0x08005074   0x00000002   Code   RO          274    i.SVC_Handler       stm32f1xx_it.o
     0x08005076   0x08005076   0x00000002   PAD
     0x08005078   0x08005078   0x00000104   Code   RO         4393    i.Serial_Decode     serialprotocol.o
-    0x0800517c   0x0800517c   0x00000264   Code   RO         4394    i.Serial_EvaluateCommand  serialprotocol.o
-    0x080053e0   0x080053e0   0x0000000e   Code   RO         4396    i.Serial_HeadReply  serialprotocol.o
-    0x080053ee   0x080053ee   0x00000002   PAD
-    0x080053f0   0x080053f0   0x00000068   Code   RO         4397    i.Serial_HeadResponse  serialprotocol.o
-    0x08005458   0x08005458   0x0000001c   Code   RO         4400    i.Serial_ReadArray  serialprotocol.o
-    0x08005474   0x08005474   0x00000018   Code   RO         4401    i.Serial_ReadByte   serialprotocol.o
-    0x0800548c   0x0800548c   0x0000001c   Code   RO         4405    i.Serial_WriteArray  serialprotocol.o
-    0x080054a8   0x080054a8   0x00000028   Code   RO         4406    i.Serial_WriteByte  serialprotocol.o
-    0x080054d0   0x080054d0   0x00000020   Code   RO         4407    i.Serial_WriteChecksum  serialprotocol.o
-    0x080054f0   0x080054f0   0x0000001a   Code   RO         4408    i.Serial_WriteStr   serialprotocol.o
-    0x0800550a   0x0800550a   0x00000032   Code   RO         4885    i.ShiftRows         aes.o
-    0x0800553c   0x0800553c   0x00000064   Code   RO         4521    i.SmartLED_Check    smartled.o
-    0x080055a0   0x080055a0   0x00000060   Code   RO         4525    i.SmartLED_Init     smartled.o
-    0x08005600   0x08005600   0x0000001e   Code   RO         4526    i.SmartLED_Off      smartled.o
-    0x0800561e   0x0800561e   0x0000001e   Code   RO         4527    i.SmartLED_On       smartled.o
-    0x0800563c   0x0800563c   0x00000078   Code   RO         4529    i.SmartLED_SetMode  smartled.o
-    0x080056b4   0x080056b4   0x00000018   Code   RO         4530    i.SmartLED_Toggle   smartled.o
-    0x080056cc   0x080056cc   0x00000028   Code   RO         4531    i.SmartLED_Update   smartled.o
-    0x080056f4   0x080056f4   0x00000034   Code   RO         4886    i.SubBytes          aes.o
-    0x08005728   0x08005728   0x0000000c   Code   RO          275    i.SysTick_Handler   stm32f1xx_it.o
-    0x08005734   0x08005734   0x00000090   Code   RO           28    i.SystemClock_Config  main.o
-    0x080057c4   0x080057c4   0x00000002   Code   RO         4357    i.SystemInit        system_stm32f1xx.o
-    0x080057c6   0x080057c6   0x00000002   PAD
-    0x080057c8   0x080057c8   0x00000074   Code   RO         3094    i.TIM_Base_SetConfig  stm32f1xx_hal_tim.o
-    0x0800583c   0x0800583c   0x00000022   Code   RO         3095    i.TIM_CCxChannelCmd  stm32f1xx_hal_tim.o
-    0x0800585e   0x0800585e   0x00000016   Code   RO         3105    i.TIM_ETR_SetConfig  stm32f1xx_hal_tim.o
-    0x08005874   0x08005874   0x00000012   Code   RO         3106    i.TIM_ITRx_SetConfig  stm32f1xx_hal_tim.o
-    0x08005886   0x08005886   0x00000002   PAD
-    0x08005888   0x08005888   0x00000060   Code   RO         3107    i.TIM_OC1_SetConfig  stm32f1xx_hal_tim.o
-    0x080058e8   0x080058e8   0x00000068   Code   RO         3108    i.TIM_OC2_SetConfig  stm32f1xx_hal_tim.o
-    0x08005950   0x08005950   0x00000068   Code   RO         3109    i.TIM_OC3_SetConfig  stm32f1xx_hal_tim.o
-    0x080059b8   0x080059b8   0x00000048   Code   RO         3110    i.TIM_OC4_SetConfig  stm32f1xx_hal_tim.o
-    0x08005a00   0x08005a00   0x00000026   Code   RO         3112    i.TIM_TI1_ConfigInputStage  stm32f1xx_hal_tim.o
-    0x08005a26   0x08005a26   0x00000028   Code   RO         3114    i.TIM_TI2_ConfigInputStage  stm32f1xx_hal_tim.o
-    0x08005a4e   0x08005a4e   0x00000002   PAD
-    0x08005a50   0x08005a50   0x0000000c   Code   RO         4612    i.UART1_Available   serialfifo.o
-    0x08005a5c   0x08005a5c   0x00000018   Code   RO         4614    i.UART1_Init        serialfifo.o
-    0x08005a74   0x08005a74   0x00000084   Code   RO         4615    i.UART1_Read        serialfifo.o
-    0x08005af8   0x08005af8   0x0000009c   Code   RO         4618    i.UART1_Transmit_IRQ  serialfifo.o
-    0x08005b94   0x08005b94   0x000000d0   Code   RO         4619    i.UART1_Write       serialfifo.o
-    0x08005c64   0x08005c64   0x0000000c   Code   RO         4621    i.UART3_Available   serialfifo.o
-    0x08005c70   0x08005c70   0x00000018   Code   RO         4623    i.UART3_Init        serialfifo.o
-    0x08005c88   0x08005c88   0x00000084   Code   RO         4624    i.UART3_Read        serialfifo.o
-    0x08005d0c   0x08005d0c   0x0000009c   Code   RO         4627    i.UART3_Transmit_IRQ  serialfifo.o
-    0x08005da8   0x08005da8   0x000000cc   Code   RO         4628    i.UART3_Write       serialfifo.o
-    0x08005e74   0x08005e74   0x00000050   Code   RO         4027    i.UART_DMAError     stm32f1xx_hal_uart.o
-    0x08005ec4   0x08005ec4   0x000000b4   Code   RO         4028    i.UART_DMAReceiveCplt  stm32f1xx_hal_uart.o
-    0x08005f78   0x08005f78   0x00000024   Code   RO         4030    i.UART_DMARxHalfCplt  stm32f1xx_hal_uart.o
-    0x08005f9c   0x08005f9c   0x0000006c   Code   RO         4036    i.UART_EndRxTransfer  stm32f1xx_hal_uart.o
-    0x08006008   0x08006008   0x00000026   Code   RO         4038    i.UART_EndTxTransfer  stm32f1xx_hal_uart.o
-    0x0800602e   0x0800602e   0x00000002   PAD
-    0x08006030   0x08006030   0x000000fc   Code   RO         4040    i.UART_SetConfig    stm32f1xx_hal_uart.o
-    0x0800612c   0x0800612c   0x000000c8   Code   RO         4041    i.UART_Start_Receive_DMA  stm32f1xx_hal_uart.o
-    0x080061f4   0x080061f4   0x00000104   Code   RO          276    i.USART1_IRQHandler  stm32f1xx_it.o
-    0x080062f8   0x080062f8   0x00000104   Code   RO          277    i.USART3_IRQHandler  stm32f1xx_it.o
-    0x080063fc   0x080063fc   0x00000010   Code   RO          278    i.USB_LP_CAN1_RX0_IRQHandler  stm32f1xx_it.o
-    0x0800640c   0x0800640c   0x00000004   Code   RO          279    i.UsageFault_Handler  stm32f1xx_it.o
-    0x08006410   0x08006410   0x0000001a   Code   RO         4887    i.XorWithIv         aes.o
-    0x0800642a   0x0800642a   0x00000002   PAD
-    0x0800642c   0x0800642c   0x00000010   Code   RO         1393    i.__NVIC_GetPriorityGrouping  stm32f1xx_hal_cortex.o
-    0x0800643c   0x0800643c   0x00000028   Code   RO         1394    i.__NVIC_SetPriority  stm32f1xx_hal_cortex.o
-    0x08006464   0x08006464   0x00000044   Code   RO         4749    i.create_key_iv     license.o
-    0x080064a8   0x080064a8   0x000000d0   Code   RO           29    i.deinitEverything  main.o
-    0x08006578   0x08006578   0x000000e0   Code   RO           30    i.main              main.o
-    0x08006658   0x08006658   0x000000ea   Code   RO         4991    i.md5_final         md5.o
-    0x08006742   0x08006742   0x00000002   PAD
-    0x08006744   0x08006744   0x00000028   Code   RO         4992    i.md5_init          md5.o
-    0x0800676c   0x0800676c   0x00000a80   Code   RO         4993    i.md5_transform     md5.o
-    0x080071ec   0x080071ec   0x00000044   Code   RO         4994    i.md5_update        md5.o
-    0x08007230   0x08007230   0x000000c8   Code   RO         4750    i.read_and_decrypt_unique_id  license.o
-    0x080072f8   0x080072f8   0x0000013c   Code   RO         5036    i.sha256_final      sha256.o
-    0x08007434   0x08007434   0x0000004c   Code   RO         5037    i.sha256_init       sha256.o
-    0x08007480   0x08007480   0x00000234   Code   RO         5038    i.sha256_transform  sha256.o
-    0x080076b4   0x080076b4   0x00000044   Code   RO         5039    i.sha256_update     sha256.o
-    0x080076f8   0x080076f8   0x0000001c   Code   RO         4751    i.shiftArrayRight   license.o
-    0x08007714   0x08007714   0x00000014   Code   RO         4888    i.xtime             aes.o
-    0x08007728   0x08007728   0x00000012   Data   RO         1087    .constdata          stm32f1xx_hal_rcc.o
-    0x0800773a   0x0800773a   0x00000018   Data   RO         4358    .constdata          system_stm32f1xx.o
-    0x08007752   0x08007752   0x00000160   Data   RO         4753    .constdata          license.o
-    0x080078b2   0x080078b2   0x00000002   PAD
-    0x080078b4   0x080078b4   0x00000050   Data   RO         4831    .constdata          eeprom.o
-    0x08007904   0x08007904   0x0000020b   Data   RO         4889    .constdata          aes.o
-    0x08007b0f   0x08007b0f   0x00000001   PAD
-    0x08007b10   0x08007b10   0x00000100   Data   RO         5040    .constdata          sha256.o
-    0x08007c10   0x08007c10   0x00000088   Data   RO         5080    .constdata          esl.o
-    0x08007c98   0x08007c98   0x00000020   Data   RO         5417    Region$$Table       anon$$obj.o
+    0x0800517c   0x0800517c   0x0000026c   Code   RO         4394    i.Serial_EvaluateCommand  serialprotocol.o
+    0x080053e8   0x080053e8   0x0000000e   Code   RO         4396    i.Serial_HeadReply  serialprotocol.o
+    0x080053f6   0x080053f6   0x00000002   PAD
+    0x080053f8   0x080053f8   0x00000068   Code   RO         4397    i.Serial_HeadResponse  serialprotocol.o
+    0x08005460   0x08005460   0x0000001c   Code   RO         4400    i.Serial_ReadArray  serialprotocol.o
+    0x0800547c   0x0800547c   0x00000018   Code   RO         4401    i.Serial_ReadByte   serialprotocol.o
+    0x08005494   0x08005494   0x0000001c   Code   RO         4405    i.Serial_WriteArray  serialprotocol.o
+    0x080054b0   0x080054b0   0x00000028   Code   RO         4406    i.Serial_WriteByte  serialprotocol.o
+    0x080054d8   0x080054d8   0x00000020   Code   RO         4407    i.Serial_WriteChecksum  serialprotocol.o
+    0x080054f8   0x080054f8   0x0000001a   Code   RO         4408    i.Serial_WriteStr   serialprotocol.o
+    0x08005512   0x08005512   0x00000032   Code   RO         4885    i.ShiftRows         aes.o
+    0x08005544   0x08005544   0x00000064   Code   RO         4521    i.SmartLED_Check    smartled.o
+    0x080055a8   0x080055a8   0x00000060   Code   RO         4525    i.SmartLED_Init     smartled.o
+    0x08005608   0x08005608   0x0000001e   Code   RO         4526    i.SmartLED_Off      smartled.o
+    0x08005626   0x08005626   0x0000001e   Code   RO         4527    i.SmartLED_On       smartled.o
+    0x08005644   0x08005644   0x00000078   Code   RO         4529    i.SmartLED_SetMode  smartled.o
+    0x080056bc   0x080056bc   0x00000018   Code   RO         4530    i.SmartLED_Toggle   smartled.o
+    0x080056d4   0x080056d4   0x00000028   Code   RO         4531    i.SmartLED_Update   smartled.o
+    0x080056fc   0x080056fc   0x00000034   Code   RO         4886    i.SubBytes          aes.o
+    0x08005730   0x08005730   0x0000000c   Code   RO          275    i.SysTick_Handler   stm32f1xx_it.o
+    0x0800573c   0x0800573c   0x00000090   Code   RO           28    i.SystemClock_Config  main.o
+    0x080057cc   0x080057cc   0x00000002   Code   RO         4357    i.SystemInit        system_stm32f1xx.o
+    0x080057ce   0x080057ce   0x00000002   PAD
+    0x080057d0   0x080057d0   0x00000074   Code   RO         3094    i.TIM_Base_SetConfig  stm32f1xx_hal_tim.o
+    0x08005844   0x08005844   0x00000022   Code   RO         3095    i.TIM_CCxChannelCmd  stm32f1xx_hal_tim.o
+    0x08005866   0x08005866   0x00000016   Code   RO         3105    i.TIM_ETR_SetConfig  stm32f1xx_hal_tim.o
+    0x0800587c   0x0800587c   0x00000012   Code   RO         3106    i.TIM_ITRx_SetConfig  stm32f1xx_hal_tim.o
+    0x0800588e   0x0800588e   0x00000002   PAD
+    0x08005890   0x08005890   0x00000060   Code   RO         3107    i.TIM_OC1_SetConfig  stm32f1xx_hal_tim.o
+    0x080058f0   0x080058f0   0x00000068   Code   RO         3108    i.TIM_OC2_SetConfig  stm32f1xx_hal_tim.o
+    0x08005958   0x08005958   0x00000068   Code   RO         3109    i.TIM_OC3_SetConfig  stm32f1xx_hal_tim.o
+    0x080059c0   0x080059c0   0x00000048   Code   RO         3110    i.TIM_OC4_SetConfig  stm32f1xx_hal_tim.o
+    0x08005a08   0x08005a08   0x00000026   Code   RO         3112    i.TIM_TI1_ConfigInputStage  stm32f1xx_hal_tim.o
+    0x08005a2e   0x08005a2e   0x00000028   Code   RO         3114    i.TIM_TI2_ConfigInputStage  stm32f1xx_hal_tim.o
+    0x08005a56   0x08005a56   0x00000002   PAD
+    0x08005a58   0x08005a58   0x0000000c   Code   RO         4612    i.UART1_Available   serialfifo.o
+    0x08005a64   0x08005a64   0x00000018   Code   RO         4614    i.UART1_Init        serialfifo.o
+    0x08005a7c   0x08005a7c   0x00000084   Code   RO         4615    i.UART1_Read        serialfifo.o
+    0x08005b00   0x08005b00   0x0000009c   Code   RO         4618    i.UART1_Transmit_IRQ  serialfifo.o
+    0x08005b9c   0x08005b9c   0x000000d0   Code   RO         4619    i.UART1_Write       serialfifo.o
+    0x08005c6c   0x08005c6c   0x0000000c   Code   RO         4621    i.UART3_Available   serialfifo.o
+    0x08005c78   0x08005c78   0x00000018   Code   RO         4623    i.UART3_Init        serialfifo.o
+    0x08005c90   0x08005c90   0x00000084   Code   RO         4624    i.UART3_Read        serialfifo.o
+    0x08005d14   0x08005d14   0x0000009c   Code   RO         4627    i.UART3_Transmit_IRQ  serialfifo.o
+    0x08005db0   0x08005db0   0x000000cc   Code   RO         4628    i.UART3_Write       serialfifo.o
+    0x08005e7c   0x08005e7c   0x00000050   Code   RO         4027    i.UART_DMAError     stm32f1xx_hal_uart.o
+    0x08005ecc   0x08005ecc   0x000000b4   Code   RO         4028    i.UART_DMAReceiveCplt  stm32f1xx_hal_uart.o
+    0x08005f80   0x08005f80   0x00000024   Code   RO         4030    i.UART_DMARxHalfCplt  stm32f1xx_hal_uart.o
+    0x08005fa4   0x08005fa4   0x0000006c   Code   RO         4036    i.UART_EndRxTransfer  stm32f1xx_hal_uart.o
+    0x08006010   0x08006010   0x00000026   Code   RO         4038    i.UART_EndTxTransfer  stm32f1xx_hal_uart.o
+    0x08006036   0x08006036   0x00000002   PAD
+    0x08006038   0x08006038   0x000000fc   Code   RO         4040    i.UART_SetConfig    stm32f1xx_hal_uart.o
+    0x08006134   0x08006134   0x000000c8   Code   RO         4041    i.UART_Start_Receive_DMA  stm32f1xx_hal_uart.o
+    0x080061fc   0x080061fc   0x00000104   Code   RO          276    i.USART1_IRQHandler  stm32f1xx_it.o
+    0x08006300   0x08006300   0x00000104   Code   RO          277    i.USART3_IRQHandler  stm32f1xx_it.o
+    0x08006404   0x08006404   0x00000010   Code   RO          278    i.USB_LP_CAN1_RX0_IRQHandler  stm32f1xx_it.o
+    0x08006414   0x08006414   0x00000004   Code   RO          279    i.UsageFault_Handler  stm32f1xx_it.o
+    0x08006418   0x08006418   0x0000001a   Code   RO         4887    i.XorWithIv         aes.o
+    0x08006432   0x08006432   0x00000002   PAD
+    0x08006434   0x08006434   0x00000010   Code   RO         1393    i.__NVIC_GetPriorityGrouping  stm32f1xx_hal_cortex.o
+    0x08006444   0x08006444   0x00000028   Code   RO         1394    i.__NVIC_SetPriority  stm32f1xx_hal_cortex.o
+    0x0800646c   0x0800646c   0x00000044   Code   RO         4749    i.create_key_iv     license.o
+    0x080064b0   0x080064b0   0x000000d0   Code   RO           29    i.deinitEverything  main.o
+    0x08006580   0x08006580   0x000000e0   Code   RO           30    i.main              main.o
+    0x08006660   0x08006660   0x000000ea   Code   RO         4991    i.md5_final         md5.o
+    0x0800674a   0x0800674a   0x00000002   PAD
+    0x0800674c   0x0800674c   0x00000028   Code   RO         4992    i.md5_init          md5.o
+    0x08006774   0x08006774   0x00000a80   Code   RO         4993    i.md5_transform     md5.o
+    0x080071f4   0x080071f4   0x00000044   Code   RO         4994    i.md5_update        md5.o
+    0x08007238   0x08007238   0x000000c8   Code   RO         4750    i.read_and_decrypt_unique_id  license.o
+    0x08007300   0x08007300   0x0000013c   Code   RO         5036    i.sha256_final      sha256.o
+    0x0800743c   0x0800743c   0x0000004c   Code   RO         5037    i.sha256_init       sha256.o
+    0x08007488   0x08007488   0x00000234   Code   RO         5038    i.sha256_transform  sha256.o
+    0x080076bc   0x080076bc   0x00000044   Code   RO         5039    i.sha256_update     sha256.o
+    0x08007700   0x08007700   0x0000001c   Code   RO         4751    i.shiftArrayRight   license.o
+    0x0800771c   0x0800771c   0x00000014   Code   RO         4888    i.xtime             aes.o
+    0x08007730   0x08007730   0x00000012   Data   RO         1087    .constdata          stm32f1xx_hal_rcc.o
+    0x08007742   0x08007742   0x00000018   Data   RO         4358    .constdata          system_stm32f1xx.o
+    0x0800775a   0x0800775a   0x00000160   Data   RO         4753    .constdata          license.o
+    0x080078ba   0x080078ba   0x00000002   PAD
+    0x080078bc   0x080078bc   0x00000050   Data   RO         4831    .constdata          eeprom.o
+    0x0800790c   0x0800790c   0x0000020b   Data   RO         4889    .constdata          aes.o
+    0x08007b17   0x08007b17   0x00000001   PAD
+    0x08007b18   0x08007b18   0x00000100   Data   RO         5040    .constdata          sha256.o
+    0x08007c18   0x08007c18   0x00000088   Data   RO         5080    .constdata          esl.o
+    0x08007ca0   0x08007ca0   0x00000020   Data   RO         5417    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08007cb8, Size: 0x00000e00, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08007cc0, Size: 0x00000e00, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08007cb8   0x0000000c   Data   RW           32    .data               main.o
-    0x2000000c   0x08007cc4   0x00000009   Data   RW          923    .data               stm32f1xx_hal.o
-    0x20000015   0x08007ccd   0x00000003   PAD
-    0x20000018   0x08007cd0   0x00000004   Data   RW         4359    .data               system_stm32f1xx.o
-    0x2000001c   0x08007cd4   0x0000000c   Data   RW         4410    .data               serialprotocol.o
-    0x20000028   0x08007ce0   0x00000002   Data   RW         4533    .data               smartled.o
-    0x2000002a   0x08007ce2   0x00000002   PAD
-    0x2000002c   0x08007ce4   0x00000008   Data   RW         4754    .data               license.o
-    0x20000034   0x08007cec   0x00000005   Data   RW         4832    .data               eeprom.o
-    0x20000039   0x08007cf1   0x00000003   Data   RW         5081    .data               esl.o
+    0x20000000   0x08007cc0   0x0000000c   Data   RW           32    .data               main.o
+    0x2000000c   0x08007ccc   0x00000009   Data   RW          923    .data               stm32f1xx_hal.o
+    0x20000015   0x08007cd5   0x00000003   PAD
+    0x20000018   0x08007cd8   0x00000004   Data   RW         4359    .data               system_stm32f1xx.o
+    0x2000001c   0x08007cdc   0x0000000c   Data   RW         4410    .data               serialprotocol.o
+    0x20000028   0x08007ce8   0x00000002   Data   RW         4533    .data               smartled.o
+    0x2000002a   0x08007cea   0x00000002   PAD
+    0x2000002c   0x08007cec   0x00000008   Data   RW         4754    .data               license.o
+    0x20000034   0x08007cf4   0x00000005   Data   RW         4832    .data               eeprom.o
+    0x20000039   0x08007cf9   0x00000003   Data   RW         5081    .data               esl.o
     0x2000003c        -       0x000002ac   Zero   RW           31    .bss                main.o
     0x200002e8        -       0x00000104   Zero   RW         4409    .bss                serialprotocol.o
     0x200003ec        -       0x00000018   Zero   RW         4532    .bss                smartled.o
     0x20000404        -       0x0000025c   Zero   RW         4630    .bss                serialfifo.o
     0x20000660        -       0x00000030   Zero   RW         4752    .bss                license.o
     0x20000690        -       0x00000029   Zero   RW         5079    .bss                esl.o
-    0x200006b9   0x08007cf4   0x00000003   PAD
+    0x200006b9   0x08007cfc   0x00000003   PAD
     0x200006bc        -       0x000000e4   Zero   RW         5195    .bss                c_w.l(rand.o)
     0x200007a0        -       0x00000060   Zero   RW         5296    .bss                c_w.l(libspace.o)
     0x20000800        -       0x00000200   Zero   RW            2    HEAP                startup_stm32f103xb.o
@@ -3181,12 +3181,12 @@ Image component sizes
 
       2366         22        523          0          0      11212   aes.o
        644         56         80          5          0       4049   eeprom.o
-       668         62        136          3         41       5170   esl.o
+       668         62        136          3         41       5194   esl.o
        694         66        352          8         48       8381   license.o
       1862        208          0         12        684     479417   main.o
       3030        264          0          0          0       6436   md5.o
       1060         80          0          0        604       7346   serialfifo.o
-      1168        140          0         12        260      12992   serialprotocol.o
+      1176        140          0         12        260      12996   serialprotocol.o
       1024         38        256          0          0       4592   sha256.o
        440         38          0          2         24       5946   smartled.o
         64         26        236          0       1536        848   startup_stm32f103xb.o
@@ -3209,7 +3209,7 @@ Image component sizes
          2          0         24          4          0       1235   system_stm32f1xx.o
 
     ----------------------------------------------------------------------
-     28680       1722       1660         60       3200    1137206   Object Totals
+     28688       1722       1660         60       3200    1137234   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         38          0          3          5          3          0   (incl. Padding)
 
@@ -3280,15 +3280,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     30268       1818       1660         60       3524    1127810   Grand Totals
-     30268       1818       1660         60       3524    1127810   ELF Image Totals
-     30268       1818       1660         60          0          0   ROM Totals
+     30276       1818       1660         60       3524    1127838   Grand Totals
+     30276       1818       1660         60       3524    1127838   ELF Image Totals
+     30276       1818       1660         60          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                31928 (  31.18kB)
+    Total RO  Size (Code + RO Data)                31936 (  31.19kB)
     Total RW  Size (RW Data + ZI Data)              3584 (   3.50kB)
-    Total ROM Size (Code + RO Data + RW Data)      31988 (  31.24kB)
+    Total ROM Size (Code + RO Data + RW Data)      31996 (  31.25kB)
 
 ==============================================================================
 
