@@ -4,9 +4,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define DMA_RX1_BUFFER_SIZE 128
+#define ESL_UART3
+#define DMA_RX1_BUFFER_SIZE  60
 #define DMA_RX3_BUFFER_SIZE  32
-#define FIFO_BUFFER_SIZE    256
+#define FIFO_BUFFER_SIZE    120
 
 typedef enum
 {
@@ -36,7 +37,7 @@ void UART1_Init(void);
 void UART1_Receive_IRQ(void);
 void UART1_Transmit_IRQ(void);
 
-
+#ifdef ESL_UART3
 uint16_t UART3_Available(void);
 uint8_t UART3_Read(void);
 
@@ -48,5 +49,5 @@ void UART3_Flush(void);
 void UART3_Init(void);
 void UART3_Receive_IRQ(void);
 void UART3_Transmit_IRQ(void);
-
+#endif
 #endif

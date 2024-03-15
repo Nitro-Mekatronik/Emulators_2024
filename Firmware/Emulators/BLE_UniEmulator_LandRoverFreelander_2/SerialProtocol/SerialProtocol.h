@@ -14,7 +14,7 @@
 
 // Version of the serial protocol and buffer size definition
 #define SERIAL_PROTOCOL_VER         141 // Version 1.4.1
-#define SERIAL_PROTOCOL_BUF_SIZE    252
+#define SERIAL_PROTOCOL_BUF_SIZE    254
 
 #ifndef UART_Available
 	#define UART_Available    UART1_Available
@@ -25,7 +25,7 @@
 #endif
 
 #ifndef UART_Write
-	#define UART_Write    UART1_Write
+	#define UART_Write(c)    if((UART1_Write(c) & FIFO_FULL) == FIFO_FULL) { HAL_Delay(200); }
 #endif
 
 

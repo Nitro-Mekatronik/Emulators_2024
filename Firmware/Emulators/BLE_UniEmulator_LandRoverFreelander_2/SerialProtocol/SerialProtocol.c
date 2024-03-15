@@ -10,18 +10,12 @@
 #include "SerialFIFO.h"
 #include "SmartLED.h"
 #include "main.h"
+#include "ESL.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#define HARDWARE_MAJOR 1
-#define HARDWARE_MINOR 0
 
-#define FIRMWARE_TYPE 0 // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway, 6-DTC Eraser
-#define FIRMWARE_BRAND 0
-#define FIRMWARE_MODEL 0
-#define FIRMWARE_MAJOR 1
-#define FIRMWARE_MINOR 0
 
 #define SUCCESS 0
 #define FAILURE 1
@@ -31,9 +25,6 @@
 #define BOOTLOADER_START_ADDRESS 0x08000000
 
 //**************************************************************************
-
-const uint8_t HARDWARE_Version[] = {HARDWARE_MAJOR, HARDWARE_MINOR};
-const uint8_t FIRMWARE_Version[] = {FIRMWARE_TYPE, FIRMWARE_BRAND, FIRMWARE_MODEL, FIRMWARE_MAJOR, FIRMWARE_MINOR};
 
 //**************************************************************************
 // Structures to hold details of received and transmitted serial messages
@@ -71,11 +62,25 @@ void Serial_EvaluateCommand(void)
         Serial_HeadReply(0); // Pong response
         break;
 
-    case SERIAL_READ_INFO:
-        Serial_HeadReply(sizeof(HARDWARE_Version) + sizeof(FIRMWARE_Version));
-        Serial_WriteArray((unsigned char *)HARDWARE_Version, sizeof(HARDWARE_Version));
-        Serial_WriteArray((unsigned char *)FIRMWARE_Version, sizeof(FIRMWARE_Version));
-        break;
+    case SERIAL_READ_INFO: {
+        char Device_Info[256];
+
+        // Initialize the buffer with the first part
+        strcpy(Device_Info, HARDWARE_VER);
+        strcat(Device_Info, "_");
+        strcat(Device_Info, FIRMWARE_TYPE);
+        strcat(Device_Info, "_");
+        strcat(Device_Info, FIRMWARE_BRAND);
+        strcat(Device_Info, "_");
+        strcat(Device_Info, FIRMWARE_MODEL);
+        strcat(Device_Info, "_");
+        strcat(Device_Info, FIRMWARE_VER);
+				strcat(Device_Info, "\0");
+			
+        Serial_HeadReply(strlen(Device_Info) + 1);
+        Serial_WriteStr(Device_Info);
+    }
+    break;
 
     case SERIAL_READ_UNIQUE: {
         uint8_t uniqueData[17];
@@ -125,8 +130,8 @@ void Serial_EvaluateCommand(void)
         Serial_WriteByte((uint8_t)isRealServer);
         if (isRealServer)
         {
-						deinitEverything();
-					
+            deinitEverything();
+
             uint32_t boot_stack;
             // Set HSION bit.
             RCC->CR |= 0x00000001U;
@@ -279,6 +284,8 @@ void Serial_WriteStr(char *str)
     {
         Serial_WriteByte((unsigned char)*str++);
     } while (*str);
+		
+		Serial_WriteByte(0);
 }
 
 //**************************************************************************

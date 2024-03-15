@@ -3,7 +3,12 @@
 
 #include <stdint.h>
 
-#define BMW_ELV_VER	1.0
+#define HARDWARE_VER "HW 1.0"
+#define FIRMWARE_TYPE "ESL" // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway
+#define FIRMWARE_BRAND "BMW"
+#define FIRMWARE_MODEL "Mini Cooper, E60, E84, E87, E90, 3-5 Serie"
+#define FIRMWARE_VER "FW 1.0b"
+
 #define BMW_LEN_RESPONSE_BYTES 15
 
 enum {

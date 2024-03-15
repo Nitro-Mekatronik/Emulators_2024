@@ -183,6 +183,7 @@ int main(void)
 				beepCounter = 5;
     }
 
+		
     /* USER CODE END 2 */
 
     /* Infinite loop */

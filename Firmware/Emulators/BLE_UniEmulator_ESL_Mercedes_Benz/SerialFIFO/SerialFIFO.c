@@ -79,7 +79,8 @@ void UART1_WriteStr(char *str)
 {
     do
     {
-        UART1_Write((unsigned char)*str++);
+        if((UART1_Write((unsigned char)*str++) & FIFO_FULL) == FIFO_FULL) 
+					HAL_Delay(200);
     } while (*str);
 }
 
@@ -156,7 +157,7 @@ uint8_t UART1_Write(uint8_t byte)
         }
     }
 
-    return 0;
+    return UART1_TxFIFO.flags;
 }
 
 //************************************************************************************************
@@ -226,6 +227,7 @@ void UART1_Transmit_IRQ(void)
 
 //************************************************************************************************
 
+#ifdef ESL_UART3
 void UART3_Init(void)
 {
     HAL_UART_Receive_DMA(&huart3, DMA_RX3_Buffer, DMA_RX3_BUFFER_SIZE);
@@ -428,5 +430,5 @@ void UART3_Transmit_IRQ(void)
         SET_BIT(USART3->CR1, USART_CR1_TCIE);
     }
 }
-
+#endif
 //************************************************************************************************
