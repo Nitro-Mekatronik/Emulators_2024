@@ -1,0 +1,8 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "adBlueLibrary")(type "Legacy")(uri "D:/My Projects/adBlue/Kicad/adBlue/adBlueLibrary/adBlueLibrary.lib")(options "")(descr ""))
+  (lib (name "adBlue-rescue")(type "Legacy")(uri "${KIPRJMOD}/Arduino_Emulator-rescue.lib")(options "")(descr ""))
+  (lib (name "MonolithicPower")(type "Legacy")(uri "J:/Github/kicad-library/Symbol/MonolithicPower.lib")(options "")(descr ""))
+  (lib (name "Arduino_Emulator-rescue")(type "Legacy")(uri "${KIPRJMOD}/Arduino_Emulator-rescue.lib")(options "")(descr ""))
+  (lib (name "TPS54240_StepDown")(type "KiCad")(uri "${KIPRJMOD}/TPS54240_StepDown.kicad_sym")(options "")(descr ""))
+)
