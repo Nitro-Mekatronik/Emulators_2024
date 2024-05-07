@@ -33,6 +33,18 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern int8_t LicenseStatus;
+
+SerialProtocol_t BLE_Serial;
+
+bool isRealServer = false;
+uint32_t challengeServerTimeout;
+
+typedef void (*p_function)(void);
+
+p_function boot_entry;
+
+// https://github.com/gbesnard/stm32f1-bootloader/tree/master
+#define BOOTLOADER_START_ADDRESS 0x08000000
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -117,7 +129,127 @@ void LED_Blue_Callback(bool status)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void BLE_ConnectionLost(void)
+{
+    Serial_SendRequest(&BLE_Serial, SERIAL_PING);
+}
 
+void BLE_EvaluateCommand(uint8_t cmd)
+{
+
+    if (isRealServer)
+    {
+        if (HAL_GetTick() > challengeServerTimeout)
+        {
+            isRealServer = false;
+        }
+    }
+
+    switch (cmd)
+    {
+    case SERIAL_PING:
+        Serial_HeadReply(&BLE_Serial, 0); // Pong response
+        break;
+
+    case SERIAL_READ_INFO: {
+        char Device_Info[256];
+
+        // Initialize the buffer with the first part
+        CONCATENATE_WITH_SPACE(Device_Info, FIRMWARE_TYPE);
+        CONCATENATE_WITH_SPACE(Device_Info, FIRMWARE_BRAND);
+        CONCATENATE_WITH_SPACE(Device_Info, FIRMWARE_MODEL);
+        CONCATENATE_WITH_SPACE(Device_Info, FIRMWARE_SHIELD);
+        CONCATENATE_WITH_SPACE(Device_Info, HARDWARE_VER);
+        strcat(Device_Info, FIRMWARE_VER); // No extra space at the end
+        Serial_SendString(&BLE_Serial, SERIAL_READ_INFO, Device_Info);
+    }
+    break;
+
+    case SERIAL_READ_UNIQUE: {
+        uint8_t uniqueData[17];
+        uint8_t random = rand() % 256;
+        uint8_t level = random >> 4;
+        uint8_t shift = random & 0x0F;
+        License_UniqueEncryption(uniqueData, level, shift, true);
+        Serial_SendArray(&BLE_Serial, SERIAL_READ_UNIQUE, uniqueData, sizeof(uniqueData));
+        isRealServer = false;
+        break;
+    }
+
+    case SERIAL_RESPONSE_UNIQUE: {
+        uint8_t uniqueData[32];
+        Serial_ReadArray(&BLE_Serial, uniqueData, sizeof(uniqueData));
+
+        isRealServer = License_Check_Unique_HASH(uniqueData);
+
+        if (isRealServer)
+        {
+            challengeServerTimeout = HAL_GetTick() + 180000; // Timeout = 1000 * 60 * 3 minutes
+        }
+
+        Serial_SendUint8(&BLE_Serial, SERIAL_RESPONSE_UNIQUE, (uint8_t)isRealServer);
+        break;
+    }
+
+    case SERIAL_ACTIVATE_DEVICE: {
+        if (isRealServer)
+        {
+            uint8_t random = rand() % 256;
+            uint8_t level = random >> 4;
+            uint8_t shift = random & 0x0F;
+            License_SetPrimary(level, shift);
+        }
+
+        Serial_SendUint8(&BLE_Serial, SERIAL_ACTIVATE_DEVICE, (uint8_t)isRealServer);
+        break;
+    }
+
+    case SERIAL_ACTIVATE_BOOTLOADER: {
+        Serial_SendUint8(&BLE_Serial, SERIAL_ACTIVATE_BOOTLOADER, (uint8_t)isRealServer);
+        if (isRealServer)
+        {
+            deinitEverything();
+
+            uint32_t boot_stack;
+            // Set HSION bit.
+            RCC->CR |= 0x00000001U;
+
+            // Reset SW, HPRE, PPRE1, PPRE2, ADCPRE and MCO bits.
+            RCC->CFGR &= 0xF8FF0000U;
+
+            // Reset HSEON, CSSON and PLLON bits.
+            RCC->CR &= 0xFEF6FFFFU;
+
+            // Reset HSEBYP bit.
+            RCC->CR &= 0xFFFBFFFFU;
+
+            // Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits.
+            RCC->CFGR &= 0xFF80FFFFU;
+
+            // Disable all interrupts and clear pending bits.
+            RCC->CIR = 0x009F0000U;
+
+            // Get the bootloader stack pointer (first entry in the bootloader vector table).
+            boot_stack = (uint32_t) * ((__IO uint32_t *)BOOTLOADER_START_ADDRESS);
+
+            // Get the bootloader entry point (second entry in the bootloader vector table).
+            boot_entry = (p_function) * (__IO uint32_t *)(BOOTLOADER_START_ADDRESS + 4U);
+            // Reconfigure vector table offset register to match the application location.
+            SCB->VTOR = BOOTLOADER_START_ADDRESS;
+
+            // Set the application stack pointer.
+            __set_MSP(boot_stack);
+
+            // Start the bootloader.
+            boot_entry();
+        }
+        break;
+    }
+
+    default:
+        break;
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -162,15 +294,16 @@ int main(void)
     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
     UART1_Init();
-
+		Serial_Protocol_Init(&BLE_Serial, UART1_Available, UART1_Read, UART1_Write, BLE_EvaluateCommand, BLE_ConnectionLost);
+		
     if (EEPROM_Init(AT24C32) != HAL_OK)
     {
         Error_Handler(); // Handle initialization failure
     }
 
-    SmartLED_Init(LED_R_GPIO_Port, LED_R_Pin, true, &LED_Red_Callback);
-    SmartLED_Init(LED_G_GPIO_Port, LED_G_Pin, true, &LED_Green_Callback);
-    SmartLED_Init(LED_B_GPIO_Port, LED_B_Pin, true, &LED_Blue_Callback);
+    SmartLED_Init(LED_R_GPIO_Port, LED_R_Pin, true, &LED_Red_Callback, NULL);
+    SmartLED_Init(LED_G_GPIO_Port, LED_G_Pin, true, &LED_Green_Callback, NULL);
+    SmartLED_Init(LED_B_GPIO_Port, LED_B_Pin, true, &LED_Blue_Callback, NULL);
 
     if (Check_License() == VALID)
     {
@@ -189,8 +322,7 @@ int main(void)
     /* USER CODE BEGIN WHILE */
     while (1)
     {
-        if (UART1_Available())
-            Serial_Decode();
+        Serial_Update(&BLE_Serial);
 
         if (LicenseStatus == VALID)
         {

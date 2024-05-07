@@ -1,4 +1,4 @@
-ble_uniemulator_template\aes.o: ..\Crypto_Algorithms\aes.c
-ble_uniemulator_template\aes.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-ble_uniemulator_template\aes.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-ble_uniemulator_template\aes.o: ..\Crypto_Algorithms\aes.h
+ble_uniemulator_template/aes.o: ..\Crypto_Algorithms\aes.c \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\Crypto_Algorithms\aes.h

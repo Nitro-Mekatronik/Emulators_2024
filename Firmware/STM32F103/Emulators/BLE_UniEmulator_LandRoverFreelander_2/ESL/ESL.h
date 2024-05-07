@@ -3,12 +3,14 @@
 
 #include <stdint.h>
 
-#define HARDWARE_VER "HW V1.0r"
+#define CONCATENATE_WITH_SPACE(buffer, string) strcat(buffer, string); strcat(buffer, " ")
+
 #define FIRMWARE_TYPE "ESL" // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway
 #define FIRMWARE_BRAND "Land Rover Freelander 2"
 #define FIRMWARE_MODEL "2006-2014 LR023801, LR024607, LR020964, LR037025, P30665124, 6G9N-3F880-DC"
 #define FIRMWARE_SHIELD "NO"
 #define FIRMWARE_VER "FW V1.0b" // 1.1rc -> 1.2r
+#define HARDWARE_VER "HW V1.0r"
 
 enum {LIN_WRITE = 0, LIN_READ};
 

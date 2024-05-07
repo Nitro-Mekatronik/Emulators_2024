@@ -1,361 +1,461 @@
 /******************************************************
- **  Project   : Serial Protocol Ver 1.4.1
- **  Version   : 1.4.1
+ **  Project   : Serial Protocol
+ **  Version   : 1.5.0
  **  Created on: 01-02-2017
  **  Author    : Eng Abdullah Jalloul
+ **  Ver 1.4.0 : Add support for ProductID
+ **  Ver 1.4.1 : Fixed bug in Serial_ReadStr
+ **  Ver 1.5.0 : 06-05-2024 Supported multi UART, remove ProductID, Added command broadcasting, and enhanced serial send
+ *functions
+ **  Ver 1.5.1 : 07-05-2024 Added ErrorReceived
  ******************************************************/
 
 #include "SerialProtocol.h"
-#include "License.h"
 #include "SerialFIFO.h"
-#include "SmartLED.h"
 #include "main.h"
-#include "ESL.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
-
-#define SUCCESS 0
-#define FAILURE 1
-// #define PRODUCT_ID 0 // zero for all devices
-
-// https://github.com/gbesnard/stm32f1-bootloader/tree/master
-#define BOOTLOADER_START_ADDRESS 0x08000000
-
 //**************************************************************************
-
-//**************************************************************************
-// Structures to hold details of received and transmitted serial messages
-SERIAL_RxMSG_t SerialRxMsg;
-SERIAL_TxMSG_t SerialTxMsg;
-
-//**************************************************************************
-
-bool isRealServer = false;
-uint32_t challengeServerTimeout;
-
-typedef void (*p_function)(void);
-
-p_function boot_entry;
-
-//**************************************************************************
-/**
- * Evaluates the received serial command and sends an appropriate response.
- */
-void Serial_EvaluateCommand(void)
+// Initializes the SerialProtocol structure
+bool Serial_Protocol_Init(SerialProtocol_t *hSerialProtocol, uint16_t (*Available)(void), uint8_t (*Read)(void),
+                          uint8_t (*Write)(uint8_t), void (*EvaluateCommandEvent)(uint8_t),
+                          void (*ConnectionLostEvent)(void))
 {
-    SerialTxMsg.Command = SerialRxMsg.Command;
+    // Check for NULL pointers
+    if (!hSerialProtocol || !Available || !Read || !Write || !EvaluateCommandEvent || !ConnectionLostEvent)
+        return false;
 
-    if (isRealServer)
-    {
-        if (HAL_GetTick() > challengeServerTimeout)
-        {
-            isRealServer = false;
-        }
-    }
+    // Initialize the entire structure to zero
+    memset(hSerialProtocol, 0, sizeof(SerialProtocol_t));
 
-    switch (SerialRxMsg.Command)
-    {
-    case SERIAL_PING:
-        Serial_HeadReply(0); // Pong response
-        break;
+    // Initialize the function pointers
+    hSerialProtocol->Available = Available;
+    hSerialProtocol->Read = Read;
+    hSerialProtocol->Write = Write;
+    hSerialProtocol->EvaluateCommandEvent = EvaluateCommandEvent;
+    hSerialProtocol->ConnectionLostEvent = ConnectionLostEvent;
 
-    case SERIAL_READ_INFO: {
-        char Device_Info[256];
+    // Set initial state for the receive message
+    hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
 
-        // Initialize the buffer with the first part
-        strcpy(Device_Info, HARDWARE_VER);
-        strcat(Device_Info, "_");
-        strcat(Device_Info, FIRMWARE_TYPE);
-        strcat(Device_Info, "_");
-        strcat(Device_Info, FIRMWARE_BRAND);
-        strcat(Device_Info, "_");
-        strcat(Device_Info, FIRMWARE_MODEL);
-				strcat(Device_Info, "_");
-        strcat(Device_Info, FIRMWARE_SHIELD);
-        strcat(Device_Info, "_");
-        strcat(Device_Info, FIRMWARE_VER);
-				strcat(Device_Info, "\0");
-			
-        Serial_HeadReply(strlen(Device_Info) + 1);
-        Serial_WriteStr(Device_Info);
-    }
-    break;
+    // Set initial connection timeout timer
+    hSerialProtocol->ConnectionTimer = HAL_GetTick() + CONNECTION_TIMEOUT;
 
-    case SERIAL_READ_UNIQUE: {
-        uint8_t uniqueData[17];
-        uint8_t random = rand() % 256;
-        uint8_t level = random >> 4;
-        uint8_t shift = random & 0x0F;
-        License_UniqueEncryption(uniqueData, level, shift, true);
-
-        Serial_HeadReply(sizeof(uniqueData));
-        Serial_WriteArray(uniqueData, sizeof(uniqueData));
-        isRealServer = false;
-        break;
-    }
-
-    case SERIAL_RESPONSE_UNIQUE: {
-        uint8_t uniqueData[32];
-        Serial_ReadArray(uniqueData, sizeof(uniqueData));
-
-        isRealServer = License_Check_Unique_HASH(uniqueData);
-
-        if (isRealServer)
-        {
-            challengeServerTimeout = HAL_GetTick() + 180000; // Timeout = 1000 * 60 * 3 minutes
-        }
-
-        Serial_HeadReply(1);
-        Serial_WriteByte((uint8_t)isRealServer);
-        break;
-    }
-
-    case SERIAL_ACTIVATE_DEVICE: {
-        if (isRealServer)
-        {
-            uint8_t random = rand() % 256;
-            uint8_t level = random >> 4;
-            uint8_t shift = random & 0x0F;
-            License_SetPrimary(level, shift);
-        }
-
-        Serial_HeadReply(1);
-        Serial_WriteByte((uint8_t)isRealServer);
-        break;
-    }
-
-    case SERIAL_ACTIVATE_BOOTLOADER: {
-        Serial_HeadReply(1);
-        Serial_WriteByte((uint8_t)isRealServer);
-        if (isRealServer)
-        {
-            deinitEverything();
-
-            uint32_t boot_stack;
-            // Set HSION bit.
-            RCC->CR |= 0x00000001U;
-
-            // Reset SW, HPRE, PPRE1, PPRE2, ADCPRE and MCO bits.
-            RCC->CFGR &= 0xF8FF0000U;
-
-            // Reset HSEON, CSSON and PLLON bits.
-            RCC->CR &= 0xFEF6FFFFU;
-
-            // Reset HSEBYP bit.
-            RCC->CR &= 0xFFFBFFFFU;
-
-            // Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits.
-            RCC->CFGR &= 0xFF80FFFFU;
-
-            // Disable all interrupts and clear pending bits.
-            RCC->CIR = 0x009F0000U;
-
-            // Get the bootloader stack pointer (first entry in the bootloader vector table).
-            boot_stack = (uint32_t) * ((__IO uint32_t *)BOOTLOADER_START_ADDRESS);
-
-            // Get the bootloader entry point (second entry in the bootloader vector table).
-            boot_entry = (p_function) * (__IO uint32_t *)(BOOTLOADER_START_ADDRESS + 4U);
-            // Reconfigure vector table offset register to match the application location.
-            SCB->VTOR = BOOTLOADER_START_ADDRESS;
-
-            // Set the application stack pointer.
-            __set_MSP(boot_stack);
-
-            // Start the bootloader.
-            boot_entry();
-        }
-        break;
-    }
-
-    default:
-        // Handle unknown or unsupported commands
-        Serial_HeadResponse(FAILURE, 0);
-        break;
-    }
-
-    Serial_WriteChecksum();
+    return true;
 }
 
 //**************************************************************************
-void Serial_Decode(void)
+// Processes incoming and outgoing serial data and handles command broadcasts and connection timeouts
+bool Serial_Update(SerialProtocol_t *hSerialProtocol)
 {
-    uint16_t bytesCount = UART_Available();
+    uint32_t currentTime = HAL_GetTick();
+
+    // Broadcast command handling
+    if (hSerialProtocol->BroadcastCommandList.number && hSerialProtocol->isConnected)
+    {
+        if (currentTime >= hSerialProtocol->BroadcastCommandList.timer)
+        {
+            hSerialProtocol->BroadcastCommandList.timer = currentTime + hSerialProtocol->BroadcastCommandList.interval;
+            hSerialProtocol->EvaluateCommandEvent(
+                hSerialProtocol->BroadcastCommandList.commands[hSerialProtocol->BroadcastCommandList.index]);
+
+            if (++hSerialProtocol->BroadcastCommandList.index >= hSerialProtocol->BroadcastCommandList.number)
+                hSerialProtocol->BroadcastCommandList.index = 0;
+        }
+    }
+
+    // Connection timeout handling
+    if (currentTime > hSerialProtocol->ConnectionTimer)
+    {
+        hSerialProtocol->isConnected = false;
+        hSerialProtocol->ConnectionTimer = currentTime + CONNECTION_TIMEOUT;
+
+        hSerialProtocol->ConnectionLostEvent();
+    }
+
+    // Decode the incoming data
+    return Serial_Decode(hSerialProtocol);
+}
+
+//**************************************************************************
+bool SerialProtocol_IsConnected(SerialProtocol_t *hSerialProtocol)
+{
+    return hSerialProtocol->isConnected;
+}
+//**************************************************************************
+// Sets a list of commands to be broadcast at regular intervals
+void Serial_SetCommandList(SerialProtocol_t *hSerialProtocol, broadcastCommandList_t *commandList)
+{
+    if (commandList)
+    {
+        memcpy((void *)&hSerialProtocol->BroadcastCommandList, (void *)commandList, sizeof(broadcastCommandList_t));
+        hSerialProtocol->BroadcastCommandList.timer = HAL_GetTick() + hSerialProtocol->BroadcastCommandList.interval;
+    }
+}
+
+//**************************************************************************
+
+bool Serial_Decode(SerialProtocol_t *hSerialProtocol)
+{
+
+    uint16_t bytesCount = hSerialProtocol->Available();
 
     while (bytesCount--)
     {
-        uint8_t c = UART_Read();
+        uint8_t c = hSerialProtocol->Read();
 
-        if (SerialRxMsg.State == SERIAL_IDLE)
+        if (hSerialProtocol->SerialRxMsg.State == SERIAL_IDLE)
         {
-            SerialRxMsg.State = (c == '$') ? SERIAL_HEADER_START : SERIAL_IDLE;
+            hSerialProtocol->SerialRxMsg.State = (c == '$') ? SERIAL_HEADER_START : SERIAL_IDLE;
         }
-        else if (SerialRxMsg.State == SERIAL_HEADER_START)
+        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_START)
         {
-            SerialRxMsg.State = (c == 'M') ? SERIAL_HEADER_M : SERIAL_IDLE;
+            hSerialProtocol->SerialRxMsg.State = (c == 'M') ? SERIAL_HEADER_M : SERIAL_IDLE;
         }
-        else if (SerialRxMsg.State == SERIAL_HEADER_M)
+        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_M)
         {
-            SerialRxMsg.State = (c == '>') ? SERIAL_HEADER_ARROW : SERIAL_IDLE;
+            hSerialProtocol->SerialRxMsg.State = (c == '>') ? SERIAL_HEADER_M : (c == '!') ? SERIAL_HEADER_ERR : SERIAL_IDLE;
         }
-        else if (SerialRxMsg.State == SERIAL_HEADER_ARROW)
+        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ARROW) ||
+                 (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ERR))
         {
 
-            if (c > SERIAL_PROTOCOL_BUF_SIZE)
+            hSerialProtocol->SerialRxMsg.ErrorReceived = (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ERR);
+
+            if (c > SERIAL_PROTOCOL_BUF_SIZE) // now we are expecting the payload size
             {
-                SerialRxMsg.State = SERIAL_IDLE;
+                hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
                 continue;
             }
 
-            SerialRxMsg.State = SERIAL_HEADER_SIZE;
-            SerialRxMsg.DataSize = c;
-            SerialRxMsg.Offset = 0;
-            SerialRxMsg.IndexBuf = 0;
-            SerialRxMsg.Checksum = c;
+            hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_SIZE;
+            hSerialProtocol->SerialRxMsg.DataSize = c;
+            hSerialProtocol->SerialRxMsg.Offset = 0;
+            hSerialProtocol->SerialRxMsg.IndexBuf = 0;
+            hSerialProtocol->SerialRxMsg.Checksum = c;
         }
-        else if (SerialRxMsg.State == SERIAL_HEADER_SIZE)
+        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_SIZE)
         {
-            SerialRxMsg.State = SERIAL_HEADER_CMD;
-            SerialRxMsg.Command = c;
-            SerialRxMsg.Checksum ^= c;
+            hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_CMD;
+            hSerialProtocol->SerialRxMsg.Command = c;
+            hSerialProtocol->SerialRxMsg.Checksum ^= c;
         }
-        else if ((SerialRxMsg.State == SERIAL_HEADER_CMD) && (SerialRxMsg.Offset < SerialRxMsg.DataSize))
+        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_CMD) &&
+                 (hSerialProtocol->SerialRxMsg.Offset < hSerialProtocol->SerialRxMsg.DataSize))
         {
-            SerialRxMsg.Checksum ^= c;
-            SerialRxMsg.DataBuffer[SerialRxMsg.Offset++] = c;
+            hSerialProtocol->SerialRxMsg.Checksum ^= c;
+            hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.Offset++] = c;
         }
-        else if ((SerialRxMsg.State == SERIAL_HEADER_CMD) && (SerialRxMsg.Offset >= SerialRxMsg.DataSize))
+        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_CMD) &&
+                 (hSerialProtocol->SerialRxMsg.Offset >= hSerialProtocol->SerialRxMsg.DataSize))
         {
-            SerialRxMsg.State = SERIAL_IDLE;
+            hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
 
-            if (SerialRxMsg.Checksum == c) // compare calculated and transferred checksum
+            if (hSerialProtocol->SerialRxMsg.Checksum == c) // compare calculated and transferred checksum
             {
-                Serial_EvaluateCommand();
+                hSerialProtocol->isConnected = true;
+                hSerialProtocol->ConnectionTimer = HAL_GetTick() + CONNECTION_TIMEOUT;
+                hSerialProtocol->EvaluateCommandEvent(hSerialProtocol->SerialRxMsg.Command);
             }
 
             bytesCount = 0;
         }
     }
+
+    return !hSerialProtocol->SerialRxMsg.ErrorReceived; // true:No Error , false:Error Received
+}
+
+//**************************************************************************
+// Sends a request with no additional data
+void Serial_SendRequest(SerialProtocol_t *hSerialProtocol, uint8_t cmd)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, 0);
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a command and data size
+void SerialProtocol_SendCmdSize(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint8_t size)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, size);
+}
+
+//**************************************************************************
+// Sends a single byte command
+void Serial_SendUint8(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint8_t Value)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, sizeof(uint8_t));
+    Serial_WriteByte(hSerialProtocol, Value);
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a 16-bit unsigned integer command
+void Serial_SendUInt16(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint16_t Value)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, sizeof(uint16_t));
+    Serial_Write16(hSerialProtocol, Value);
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a 32-bit unsigned integer command
+void Serial_SendUint32(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint32_t Value)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, sizeof(uint32_t));
+    Serial_Write32(hSerialProtocol, Value);
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a floating point value command
+void Serial_SendFloat(SerialProtocol_t *hSerialProtocol, uint8_t cmd, float Value)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, sizeof(float));
+    Serial_WriteArray(hSerialProtocol, (uint8_t *)&Value, sizeof(float));
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a double precision floating point value command
+void Serial_SendDouble(SerialProtocol_t *hSerialProtocol, uint8_t cmd, double Value)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, sizeof(double));
+    Serial_WriteArray(hSerialProtocol, (uint8_t *)&Value, sizeof(double));
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends a string command
+void Serial_SendString(SerialProtocol_t *hSerialProtocol, uint8_t cmd, char *str)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, strlen(str));
+    Serial_WriteString(hSerialProtocol, str);
+    Serial_WriteChecksum(hSerialProtocol);
+}
+
+//**************************************************************************
+// Sends an array of bytes as a command
+void Serial_SendArray(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint8_t *Array, uint8_t size)
+{
+    Serial_HeadCommand(hSerialProtocol, cmd, size);
+    Serial_WriteArray(hSerialProtocol, Array, size);
+    Serial_WriteChecksum(hSerialProtocol);
 }
 
 //**************************************************************************
 // Reads a string from the serial interface
-void Serial_ReadStr(char *str, unsigned char size)
+void Serial_ReadString(SerialProtocol_t *hSerialProtocol, char *str, unsigned char size)
 {
-    do
+    // Early exit if the buffer size is zero
+    if (size == 0)
+        return;
+
+    unsigned char count = 0; // Counter for the number of characters read
+    char c;
+    unsigned char remainingDataSize = hSerialProtocol->SerialRxMsg.DataSize - hSerialProtocol->SerialRxMsg.IndexBuf;
+
+    while (count < size - 1 && remainingDataSize > 0)
     {
-        *str = (char)Serial_ReadByte();
-    } while (*str++);
+        c = (char)(hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++]);
+
+        // Ensure index is within bounds
+        if (hSerialProtocol->SerialRxMsg.IndexBuf > SERIAL_PROTOCOL_BUF_SIZE)
+        {
+#ifdef DEBUG
+            fprintf(stderr, "Buffer overflow prevented in Serial_ReadString\n");
+#endif
+            break;
+        }
+
+        str[count++] = c;
+        remainingDataSize--;
+
+        // Stop reading if a null terminator is found
+        if (c == '\0')
+            break;
+    }
+
+    // Ensure the string is properly null-terminated
+    str[count] = '\0';
 }
 
 //**************************************************************************
-void Serial_ReadArray(unsigned char *data, unsigned char size)
+// Reads an array of bytes from the serial interface
+void Serial_ReadArray(SerialProtocol_t *hSerialProtocol, unsigned char *data, unsigned char size)
 {
+    // Check if reading the specified size will cause a buffer overflow
+    if (hSerialProtocol->SerialRxMsg.IndexBuf + size > hSerialProtocol->SerialRxMsg.DataSize)
+    {
+#ifdef DEBUG
+        // Log the error or handle it according to your application's needs
+        fprintf(stderr, "Buffer overflow prevented in Serial_ReadArray\n");
+#endif
+        return;
+    }
+
+    // Read data into the provided array
     while (size--)
-        *data++ = Serial_ReadByte();
+    {
+        *data++ = hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++];
+    }
 }
 
 //**************************************************************************
-uint8_t Serial_ReadByte(void)
+// Reads a single byte from the serial interface
+uint8_t Serial_ReadByte(SerialProtocol_t *hSerialProtocol)
 {
-    return SerialRxMsg.DataBuffer[SerialRxMsg.IndexBuf++];
+    if (hSerialProtocol->SerialRxMsg.IndexBuf >= SERIAL_PROTOCOL_BUF_SIZE)
+    {
+
+#ifdef DEBUG
+        // Log the error or handle it according to your application's needs
+        fprintf(stderr, "Buffer overflow prevented in Serial_ReadByte\n");
+#endif
+        return 0; // Return zero
+    }
+
+    return hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++];
 }
 
 //**************************************************************************
-uint16_t Serial_Read16(void)
+// Reads a 16-bit unsigned integer from the serial interface
+uint16_t Serial_Read16(SerialProtocol_t *hSerialProtocol)
 {
-    uint16_t u16 = Serial_ReadByte();
-    u16 |= (uint16_t)Serial_ReadByte() << 8;
+    if (hSerialProtocol->SerialRxMsg.IndexBuf + 1 >= SERIAL_PROTOCOL_BUF_SIZE)
+    {
+
+#ifdef DEBUG
+        // Log the error or handle it according to your application's needs
+        fprintf(stderr, "Buffer overflow prevented in Serial_Read16\n");
+#endif
+        return 0; // Return zero
+    }
+
+    uint16_t u16 = hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++];
+    u16 |= (uint16_t)(hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++]) << 8;
     return u16;
 }
 
 //**************************************************************************
-uint32_t Serial_Read32(void)
+// Reads a 32-bit unsigned integer from the serial interface
+uint32_t Serial_Read32(SerialProtocol_t *hSerialProtocol)
 {
-    uint32_t u32 = Serial_Read16();
-    u32 |= (uint32_t)Serial_Read16() << 16;
+    if (hSerialProtocol->SerialRxMsg.IndexBuf + 3 >= SERIAL_PROTOCOL_BUF_SIZE)
+    {
+
+#ifdef DEBUG
+        // Log the error or handle it according to your application's needs
+        fprintf(stderr, "Buffer overflow prevented in Serial_Read32\n");
+#endif
+        return 0; // Return zero
+    }
+
+    uint32_t u32 = hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++];
+    u32 |= (uint32_t)(hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++]) << 8;
+    u32 |= (uint32_t)(hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++]) << 16;
+    u32 |= (uint32_t)(hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.IndexBuf++]) << 24;
     return u32;
 }
 
 //**************************************************************************
-void Serial_WriteStr(char *str)
+// Writes a string to the serial interface
+void Serial_WriteString(SerialProtocol_t *hSerialProtocol, char *str)
 {
-    do
+    while (*str)
     {
-        Serial_WriteByte((unsigned char)*str++);
-    } while (*str);
-		
-		Serial_WriteByte(0);
+        hSerialProtocol->Write((unsigned char)*str);
+        hSerialProtocol->SerialTxMsg.Checksum ^= (unsigned char)*str++;
+    };
 }
 
 //**************************************************************************
-void Serial_WriteArray(unsigned char *data, unsigned char size)
+// Writes an array of bytes to the serial interface
+void Serial_WriteArray(SerialProtocol_t *hSerialProtocol, unsigned char *data, unsigned char size)
 {
     while (size--)
-        Serial_WriteByte(*data++);
+    {
+        hSerialProtocol->Write(*data);
+        hSerialProtocol->SerialTxMsg.Checksum ^= *data++;
+    }
 }
 
 //**************************************************************************
-void Serial_WriteByte(unsigned char a)
+// Writes a single byte to the serial interface
+void Serial_WriteByte(SerialProtocol_t *hSerialProtocol, unsigned char a)
 {
-    UART_Write(a);
-    SerialTxMsg.Checksum ^= a;
+    hSerialProtocol->Write(a);
+    hSerialProtocol->SerialTxMsg.Checksum ^= a;
 }
 
 //**************************************************************************
-void Serial_Write16(uint16_t u16)
+// Writes a 16-bit unsigned integer to the serial interface
+void Serial_Write16(SerialProtocol_t *hSerialProtocol, uint16_t u16)
 {
-    Serial_WriteByte(u16);
-    Serial_WriteByte(u16 >> 8);
+    hSerialProtocol->Write(u16);
+    hSerialProtocol->Write((u16 >> 8) & 0xFF);
+    hSerialProtocol->SerialTxMsg.Checksum ^= u16 & 0xFF;
+    hSerialProtocol->SerialTxMsg.Checksum ^= ((u16 >> 8) & 0xFF);
 }
 
 //**************************************************************************
-void Serial_Write32(uint32_t u32)
+// Writes a 32-bit unsigned integer to the serial interface
+void Serial_Write32(SerialProtocol_t *hSerialProtocol, uint32_t u32)
 {
-    Serial_Write16(u32);
-    Serial_Write16(u32 >> 16);
+    hSerialProtocol->Write(u32);
+    hSerialProtocol->Write((u32 >> 8) & 0xFF);
+    hSerialProtocol->Write((u32 >> 16) & 0xFF);
+    hSerialProtocol->Write((u32 >> 24) & 0xFF);
+
+    hSerialProtocol->SerialTxMsg.Checksum ^= u32;
+    hSerialProtocol->SerialTxMsg.Checksum ^= (u32 >> 8) & 0xFF;
+    hSerialProtocol->SerialTxMsg.Checksum ^= (u32 >> 16) & 0xFF;
+    hSerialProtocol->SerialTxMsg.Checksum ^= (u32 >> 24) & 0xFF;
 }
 
 //**************************************************************************
-void Serial_HeadCommand(uint8_t cmd, uint8_t size)
+// Sends a command header
+void Serial_HeadCommand(SerialProtocol_t *hSerialProtocol, uint8_t cmd, uint8_t size)
 {
-    SerialTxMsg.Checksum = 0;
-    SerialTxMsg.Command = cmd;
+    hSerialProtocol->SerialTxMsg.Checksum = 0;
+    hSerialProtocol->SerialTxMsg.Command = cmd;
 
-    UART_Write('$');
-    UART_Write('M');
-    UART_Write('>');
-    Serial_WriteByte(size); // start calculating a new checksum
-    Serial_WriteByte(cmd);
+    hSerialProtocol->Write('$');
+    hSerialProtocol->Write('M');
+    hSerialProtocol->Write('>');
+    Serial_WriteByte(hSerialProtocol, size); // start calculating a new checksum
+    Serial_WriteByte(hSerialProtocol, cmd);
     //    Serial_WriteByte(PRODUCT_ID);
 }
 
 //**************************************************************************
-void Serial_HeadReply(uint8_t size)
+// Sends a reply header
+void Serial_HeadReply(SerialProtocol_t *hSerialProtocol, uint8_t size)
 {
-    Serial_HeadResponse(0, size);
+    Serial_HeadResponse(hSerialProtocol, 0, size);
 }
 
 //**************************************************************************
-void Serial_HeadResponse(uint8_t err, uint8_t size)
+// Sends a response header
+void Serial_HeadResponse(SerialProtocol_t *hSerialProtocol, uint8_t err, uint8_t size)
 {
-    SerialTxMsg.Checksum = 0;
-    SerialTxMsg.DataSize = size;
+    hSerialProtocol->SerialTxMsg.Checksum = 0;
+    hSerialProtocol->SerialTxMsg.DataSize = size;
 
-    UART_Write('$');
-    UART_Write('M');
-    UART_Write(err ? '!' : '>');
-    Serial_WriteByte(size); // start calculating a new checksum
-    Serial_WriteByte(SerialTxMsg.Command);
-    //    Serial_WriteByte(PRODUCT_ID);
+    hSerialProtocol->Write('$');
+    hSerialProtocol->Write('M');
+    hSerialProtocol->Write(err ? '!' : '>');
+    Serial_WriteByte(hSerialProtocol, size); // start calculating a new checksum
+    Serial_WriteByte(hSerialProtocol, hSerialProtocol->SerialTxMsg.Command);
 }
 
 //**************************************************************************
-void Serial_WriteChecksum(void)
+// Writes a checksum to the serial interface
+void Serial_WriteChecksum(SerialProtocol_t *hSerialProtocol)
 {
-    UART_Write(SerialTxMsg.Checksum);
+    hSerialProtocol->Write(hSerialProtocol->SerialTxMsg.Checksum);
 }
 
 //**************************************************************************

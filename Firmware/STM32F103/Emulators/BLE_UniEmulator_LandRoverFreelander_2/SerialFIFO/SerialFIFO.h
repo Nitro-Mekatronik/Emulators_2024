@@ -5,9 +5,10 @@
 #include <stdint.h>
 
 #define ESL_UART3
-#define DMA_RX1_BUFFER_SIZE  60
+
+#define DMA_RX1_BUFFER_SIZE 128
 #define DMA_RX3_BUFFER_SIZE  32
-#define FIFO_BUFFER_SIZE    120
+#define FIFO_BUFFER_SIZE    256
 
 typedef enum
 {
@@ -27,11 +28,11 @@ typedef struct
 
 uint16_t UART1_Available(void);
 uint8_t UART1_Read(void);
+uint8_t UART1_Write(uint8_t byte);
 
 bool UART1_ReadStr(char *str, int maxLength, uint32_t timeout);
 void UART1_WriteStr(char *str);
 
-uint8_t UART1_Write(uint8_t byte);
 void UART1_Flush(void);
 void UART1_Init(void);
 void UART1_Receive_IRQ(void);
@@ -40,11 +41,11 @@ void UART1_Transmit_IRQ(void);
 #ifdef ESL_UART3
 uint16_t UART3_Available(void);
 uint8_t UART3_Read(void);
-
+uint8_t UART3_Write(uint8_t byte);
 bool UART3_ReadStr(char *str, int maxLength, uint32_t timeout);
 void UART3_WriteStr(char *str);
 
-uint8_t UART3_Write(uint8_t byte);
+
 void UART3_Flush(void);
 void UART3_Init(void);
 void UART3_Receive_IRQ(void);

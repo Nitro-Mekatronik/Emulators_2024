@@ -3,12 +3,14 @@
 
 #include <stdint.h>
 
-#define HARDWARE_VER "HW V1.0r"
+#define CONCATENATE_WITH_SPACE(buffer, string) strcat(buffer, string); strcat(buffer, " ")
+
 #define FIRMWARE_TYPE "ESL" // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway
 #define FIRMWARE_BRAND "Mercedes Benz"
 #define FIRMWARE_MODEL "Sprinter, Vito, VW Crafter, W169, W245, W202, W203, W208, W209, W210, W211, W639, W906"
 #define FIRMWARE_SHIELD "NO"
 #define FIRMWARE_VER "FW V1.0b" // 1.1rc -> 1.2r
+#define HARDWARE_VER "HW V1.0r"
 
 #define MERCEDES_LEN_RESPONSE_BYTES 11
 

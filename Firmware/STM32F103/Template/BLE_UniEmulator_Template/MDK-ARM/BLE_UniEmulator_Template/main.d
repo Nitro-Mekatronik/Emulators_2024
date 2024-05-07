@@ -36,9 +36,9 @@ ble_uniemulator_template\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_h
 ble_uniemulator_template\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 ble_uniemulator_template\main.o: ../EEPROM/EEPROM.h
 ble_uniemulator_template\main.o: ../ESL/ESL.h
+ble_uniemulator_template\main.o: ../LIN_Slave/LIN_Slave.h
 ble_uniemulator_template\main.o: ../License/License.h
 ble_uniemulator_template\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-ble_uniemulator_template\main.o: ../LIN_Slave/LIN_Slave.h
 ble_uniemulator_template\main.o: ../SerialFIFO/SerialFIFO.h
 ble_uniemulator_template\main.o: ../SerialProtocol/SerialProtocol.h
 ble_uniemulator_template\main.o: ../SmartLED/SmartLED.h

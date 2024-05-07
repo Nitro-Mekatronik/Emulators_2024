@@ -79,8 +79,7 @@ void UART1_WriteStr(char *str)
 {
     do
     {
-        if((UART1_Write((unsigned char)*str++) & FIFO_FULL) == FIFO_FULL) 
-					HAL_Delay(200);
+        UART1_Write((unsigned char)*str++);
     } while (*str);
 }
 
@@ -118,6 +117,16 @@ bool UART1_ReadStr(char *str, int maxLength, uint32_t timeout)
 
 uint8_t UART1_Write(uint8_t byte)
 {
+		uint32_t startTime = HAL_GetTick();
+    uint32_t timeout = 50; // Timeout in milliseconds
+		
+	// Wait until space is available in the buffer or timeout
+    while (UART1_TxFIFO.numBytes == FIFO_BUFFER_SIZE) {
+        if ((HAL_GetTick() - startTime) > timeout) {
+            return UART1_TxFIFO.flags; // Return with an error or special flag indicating timeout
+        }
+    }
+		
     // disable interrupts
     HAL_NVIC_DisableIRQ(USART1_IRQn);
 
@@ -157,7 +166,7 @@ uint8_t UART1_Write(uint8_t byte)
         }
     }
 
-    return UART1_TxFIFO.flags;
+		return UART1_TxFIFO.flags;
 }
 
 //************************************************************************************************
@@ -325,6 +334,16 @@ bool UART3_ReadStr(char *str, int maxLength, uint32_t timeout)
 
 uint8_t UART3_Write(uint8_t byte)
 {
+		uint32_t startTime = HAL_GetTick();
+    uint32_t timeout = 50; // Timeout in milliseconds
+		
+	// Wait until space is available in the buffer or timeout
+    while (UART3_TxFIFO.numBytes == FIFO_BUFFER_SIZE) {
+        if ((HAL_GetTick() - startTime) > timeout) {
+            return UART3_TxFIFO.flags; // Return with an error or special flag indicating timeout
+        }
+    }
+		
     // disable interrupts
     HAL_NVIC_DisableIRQ(USART3_IRQn);
 
@@ -364,7 +383,7 @@ uint8_t UART3_Write(uint8_t byte)
         }
     }
 
-    return 0;
+    return UART3_TxFIFO.flags;
 }
 
 //************************************************************************************************

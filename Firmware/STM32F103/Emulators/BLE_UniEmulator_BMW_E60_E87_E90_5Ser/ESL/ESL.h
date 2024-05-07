@@ -3,12 +3,14 @@
 
 #include <stdint.h>
 
-#define HARDWARE_VER "HW V1.0r"
+#define CONCATENATE_WITH_SPACE(buffer, string) strcat(buffer, string); strcat(buffer, " ")
+
 #define FIRMWARE_TYPE "ESL" // 0-Empty, 1-ESL, 2-AdBlue, 3-Chip Tuning Box, 4-IMMO, 5-Gateway
 #define FIRMWARE_BRAND "BMW"
 #define FIRMWARE_MODEL "Mini Cooper, E60, E84, E87, E90, 3-5 Serie"
 #define FIRMWARE_SHIELD "NO"
 #define FIRMWARE_VER "FW V1.0b" // 1.1rc -> 1.2r
+#define HARDWARE_VER "HW V1.0r"
 
 #define BMW_LEN_RESPONSE_BYTES 15
 
