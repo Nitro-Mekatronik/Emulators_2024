@@ -209,6 +209,9 @@ void BLE_EvaluateCommand(uint8_t cmd)
         Serial_SendUint8(&BLE_Serial, SERIAL_ACTIVATE_BOOTLOADER, (uint8_t)isRealServer);
         if (isRealServer)
         {
+            uint8_t BOOTLOADER_ENABLE = 0xFF;
+            EEPROM_Write(0x00, &BOOTLOADER_ENABLE, 1);
+
             deinitEverything();
 
             uint32_t boot_stack;
@@ -295,7 +298,8 @@ int main(void)
     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 
     UART1_Init();
-    Serial_Protocol_Init(&BLE_Serial, UART1_Available, UART1_Read, UART1_Write, BLE_EvaluateCommand, BLE_ConnectionLost);
+    Serial_Protocol_Init(&BLE_Serial, UART1_Available, UART1_Read, UART1_Write, BLE_EvaluateCommand,
+                         BLE_ConnectionLost);
 
     if (EEPROM_Init(AT24C32) != HAL_OK)
     {
@@ -308,16 +312,15 @@ int main(void)
 
     if (Check_License() == VALID)
     {
-				ELV_Init();
+        ELV_Init();
         SmartLED_SetMode(LED_G, LED_MODE_BLINK_SLOW);
     }
     else
     {
         SmartLED_SetMode(LED_R, LED_MODE_BLINK_SLOW);
-				beepCounter = 5;
+        beepCounter = 5;
     }
 
-		
     /* USER CODE END 2 */
 
     /* Infinite loop */

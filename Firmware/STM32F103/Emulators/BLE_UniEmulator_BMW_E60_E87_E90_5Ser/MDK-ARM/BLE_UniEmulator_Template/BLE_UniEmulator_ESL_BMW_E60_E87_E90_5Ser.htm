@@ -3,7 +3,7 @@
 <title>Static Call Graph - [BLE_UniEmulator_Template\BLE_UniEmulator_ESL_BMW_E60_E87_E90_5Ser.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image BLE_UniEmulator_Template\BLE_UniEmulator_ESL_BMW_E60_E87_E90_5Ser.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 07 16:15:45 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Aug 20 22:47:58 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1180 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -96,8 +96,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[4a]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
 <P><STRONG><a name="[4b]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
@@ -201,8 +201,8 @@ Global Symbols
 <P><STRONG><a name="[153]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
 
 <P><STRONG><a name="[4c]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[154]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -406,11 +406,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_rand_2
 </UL>
 
-<P><STRONG><a name="[8a]"></a>memcmp</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, memcmp.o(.text))
+<P><STRONG><a name="[8b]"></a>memcmp</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, memcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = memcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_Check_Unique_HASH
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
 </UL>
 
 <P><STRONG><a name="[119]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, strlen.o(.text))
@@ -433,7 +433,7 @@ Global Symbols
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_encrypt_buffer
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_decrypt_buffer
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
 <P><STRONG><a name="[63]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
@@ -457,7 +457,7 @@ Global Symbols
 
 <P><STRONG><a name="[102]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
 <P><STRONG><a name="[65]"></a>__rt_memclr</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -601,8 +601,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5d]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
-<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
 </UL>
 
 <P><STRONG><a name="[70]"></a>__default_signal_display</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))
@@ -634,7 +634,7 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XorWithIv
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvCipher
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
 <P><STRONG><a name="[78]"></a>AES_CBC_encrypt_buffer</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, aes.o(i.AES_CBC_encrypt_buffer))
@@ -654,7 +654,7 @@ Global Symbols
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyExpansion
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
 <P><STRONG><a name="[42]"></a>BLE_ConnectionLost</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, main.o(i.BLE_ConnectionLost))
@@ -664,7 +664,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[43]"></a>BLE_EvaluateCommand</STRONG> (Thumb, 470 bytes, Stack size 280 bytes, main.o(i.BLE_EvaluateCommand))
+<P><STRONG><a name="[43]"></a>BLE_EvaluateCommand</STRONG> (Thumb, 484 bytes, Stack size 280 bytes, main.o(i.BLE_EvaluateCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1180<LI>Call Chain = BLE_EvaluateCommand &rArr; License_SetPrimary &rArr; License_UniqueEncryption &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_SendUint8
@@ -676,7 +676,8 @@ Global Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_SetPrimary
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_Check_Unique_HASH
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
 </UL>
@@ -685,11 +686,11 @@ Global Symbols
 <P><STRONG><a name="[c]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[88]"></a>Check_License</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, license.o(i.Check_License))
+<P><STRONG><a name="[89]"></a>Check_License</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, license.o(i.Check_License))
 <BR><BR>[Stack]<UL><LI>Max Depth = 916<LI>Call Chain = Check_License &rArr; read_and_decrypt_unique_id &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -697,46 +698,47 @@ Global Symbols
 <P><STRONG><a name="[1f]"></a>DMA1_Channel3_IRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.DMA1_Channel3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = DMA1_Channel3_IRQHandler &rArr; HAL_DMA_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[21]"></a>DMA1_Channel5_IRQHandler</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.DMA1_Channel5_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = DMA1_Channel5_IRQHandler &rArr; HAL_DMA_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_IRQHandler
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[f]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[90]"></a>EEPROM_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, eeprom.o(i.EEPROM_Init))
+<P><STRONG><a name="[91]"></a>EEPROM_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, eeprom.o(i.EEPROM_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = EEPROM_Init &rArr; HAL_I2C_IsDeviceReady &rArr; I2C_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
 </UL>
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>EEPROM_Read</STRONG> (Thumb, 250 bytes, Stack size 40 bytes, eeprom.o(i.EEPROM_Read))
+<P><STRONG><a name="[93]"></a>EEPROM_Read</STRONG> (Thumb, 250 bytes, Stack size 40 bytes, eeprom.o(i.EEPROM_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = EEPROM_Read &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
-<P><STRONG><a name="[95]"></a>EEPROM_Write</STRONG> (Thumb, 318 bytes, Stack size 48 bytes, eeprom.o(i.EEPROM_Write))
+<P><STRONG><a name="[87]"></a>EEPROM_Write</STRONG> (Thumb, 318 bytes, Stack size 48 bytes, eeprom.o(i.EEPROM_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = EEPROM_Write &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_SetPrimary
+<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
 </UL>
 
 <P><STRONG><a name="[97]"></a>ELV_EvaluateCommand</STRONG> (Thumb, 178 bytes, Stack size 8 bytes, esl.o(i.ELV_EvaluateCommand))
@@ -810,8 +812,8 @@ Global Symbols
 <P><STRONG><a name="[a0]"></a>HAL_ADC_Init</STRONG> (Thumb, 314 bytes, Stack size 24 bytes, stm32f1xx_hal_adc.o(i.HAL_ADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
@@ -821,7 +823,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[a1]"></a>HAL_ADC_MspInit</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, stm32f1xx_hal_msp.o(i.HAL_ADC_MspInit))
@@ -871,7 +873,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_DisableIRQ
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[b4]"></a>HAL_CAN_MspInit</STRONG> (Thumb, 138 bytes, Stack size 32 bytes, stm32f1xx_hal_msp.o(i.HAL_CAN_MspInit))
@@ -941,7 +943,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[130]"></a>HAL_CRC_MspDeInit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f1xx_hal_msp.o(i.HAL_CRC_MspDeInit))
-<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[ba]"></a>HAL_CRC_MspInit</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, stm32f1xx_hal_msp.o(i.HAL_CRC_MspInit))
@@ -954,7 +956,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspDeInit
 </UL>
 
-<P><STRONG><a name="[8f]"></a>HAL_DMA_IRQHandler</STRONG> (Thumb, 408 bytes, Stack size 16 bytes, stm32f1xx_hal_dma.o(i.HAL_DMA_IRQHandler))
+<P><STRONG><a name="[90]"></a>HAL_DMA_IRQHandler</STRONG> (Thumb, 408 bytes, Stack size 16 bytes, stm32f1xx_hal_dma.o(i.HAL_DMA_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_DMA_IRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA1_Channel5_IRQHandler
@@ -978,16 +980,16 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspDeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
-<P><STRONG><a name="[93]"></a>HAL_Delay</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_Delay))
+<P><STRONG><a name="[94]"></a>HAL_Delay</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_Delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_Delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
 </UL>
 
 <P><STRONG><a name="[a3]"></a>HAL_GPIO_DeInit</STRONG> (Thumb, 284 bytes, Stack size 24 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_DeInit))
@@ -998,7 +1000,7 @@ Global Symbols
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_MspDeInit
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspDeInit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspDeInit
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[a4]"></a>HAL_GPIO_Init</STRONG> (Thumb, 766 bytes, Stack size 36 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init))
@@ -1021,7 +1023,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[73]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Update
+<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Update
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Write
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Update
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Protocol_Init
@@ -1032,20 +1035,19 @@ Global Symbols
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_Update
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_Init
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnTXEFlagUntilTimeout
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnRXNEFlagUntilTimeout
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnMasterAddressFlagUntilTimeout
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnBTFFlagUntilTimeout
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_EvaluateCommand
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_Write
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Check
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Decode
@@ -1060,16 +1062,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 </UL>
 
-<P><STRONG><a name="[91]"></a>HAL_I2C_IsDeviceReady</STRONG> (Thumb, 430 bytes, Stack size 40 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady))
+<P><STRONG><a name="[92]"></a>HAL_I2C_IsDeviceReady</STRONG> (Thumb, 430 bytes, Stack size 40 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_I2C_IsDeviceReady &rArr; I2C_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Init
+<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Init
 </UL>
 
-<P><STRONG><a name="[94]"></a>HAL_I2C_Mem_Read</STRONG> (Thumb, 850 bytes, Stack size 48 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_Mem_Read))
+<P><STRONG><a name="[95]"></a>HAL_I2C_Mem_Read</STRONG> (Thumb, 850 bytes, Stack size 48 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_Mem_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1077,7 +1079,7 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryRead
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
 </UL>
 
 <P><STRONG><a name="[96]"></a>HAL_I2C_Mem_Write</STRONG> (Thumb, 348 bytes, Stack size 48 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_Mem_Write))
@@ -1089,7 +1091,7 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnBTFFlagUntilTimeout
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryWrite
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
 </UL>
 
 <P><STRONG><a name="[c8]"></a>HAL_I2C_MspDeInit</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, stm32f1xx_hal_msp.o(i.HAL_I2C_MspDeInit))
@@ -1097,7 +1099,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[c0]"></a>HAL_I2C_MspInit</STRONG> (Thumb, 124 bytes, Stack size 32 bytes, stm32f1xx_hal_msp.o(i.HAL_I2C_MspInit))
@@ -1150,7 +1152,7 @@ Global Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Read
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspDeInit
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspDeInit
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_Write
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_Read
 </UL>
@@ -1205,7 +1207,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[d4]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
@@ -1266,7 +1268,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[da]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, stm32f1xx_hal_msp.o(i.HAL_SPI_MspInit))
@@ -1325,7 +1327,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM4_Init
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 </UL>
@@ -1390,7 +1392,7 @@ Global Symbols
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_DisableIRQ
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deinitEverything
 </UL>
 
 <P><STRONG><a name="[ef]"></a>HAL_UART_MspInit</STRONG> (Thumb, 364 bytes, Stack size 32 bytes, stm32f1xx_hal_msp.o(i.HAL_UART_MspInit))
@@ -1437,7 +1439,7 @@ Global Symbols
 <P><STRONG><a name="[84]"></a>License_Check_Unique_HASH</STRONG> (Thumb, 60 bytes, Stack size 168 bytes, license.o(i.License_Check_Unique_HASH))
 <BR><BR>[Stack]<UL><LI>Max Depth = 500<LI>Call Chain = License_Check_Unique_HASH &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_update
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_init
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_final
@@ -1449,7 +1451,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 900<LI>Call Chain = License_SetPrimary &rArr; License_UniqueEncryption &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
 </UL>
@@ -1839,10 +1841,10 @@ Global Symbols
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5_final
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 
-<P><STRONG><a name="[87]"></a>deinitEverything</STRONG> (Thumb, 158 bytes, Stack size 8 bytes, main.o(i.deinitEverything))
+<P><STRONG><a name="[88]"></a>deinitEverything</STRONG> (Thumb, 158 bytes, Stack size 8 bytes, main.o(i.deinitEverything))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = deinitEverything &rArr; HAL_RCC_DeInit &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspDeInit
@@ -1874,8 +1876,8 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_Update
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_USART_Receive
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ELV_Init
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Init
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Init
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
@@ -1921,18 +1923,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_key_iv
 </UL>
 
-<P><STRONG><a name="[89]"></a>read_and_decrypt_unique_id</STRONG> (Thumb, 182 bytes, Stack size 328 bytes, license.o(i.read_and_decrypt_unique_id))
+<P><STRONG><a name="[8a]"></a>read_and_decrypt_unique_id</STRONG> (Thumb, 182 bytes, Stack size 328 bytes, license.o(i.read_and_decrypt_unique_id))
 <BR><BR>[Stack]<UL><LI>Max Depth = 884<LI>Call Chain = read_and_decrypt_unique_id &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_decrypt_buffer
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shiftArrayRight
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_key_iv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
 </UL>
 
 <P><STRONG><a name="[ff]"></a>sha256_final</STRONG> (Thumb, 316 bytes, Stack size 16 bytes, sha256.o(i.sha256_final))
@@ -1970,7 +1972,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = shiftArrayRight
 </UL>
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
 <P>
 <H3>
@@ -2123,7 +2125,7 @@ Local Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnMasterAddressFlagUntilTimeout
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
 </UL>
 
 <P><STRONG><a name="[c5]"></a>I2C_RequestMemoryWrite</STRONG> (Thumb, 220 bytes, Stack size 32 bytes, stm32f1xx_hal_i2c.o(i.I2C_RequestMemoryWrite))
@@ -2153,8 +2155,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryWrite
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryRead
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
 </UL>
 
 <P><STRONG><a name="[f7]"></a>I2C_WaitOnMasterAddressFlagUntilTimeout</STRONG> (Thumb, 250 bytes, Stack size 24 bytes, stm32f1xx_hal_i2c.o(i.I2C_WaitOnMasterAddressFlagUntilTimeout))
@@ -2171,7 +2173,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
 </UL>
 
 <P><STRONG><a name="[c6]"></a>I2C_WaitOnTXEFlagUntilTimeout</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, stm32f1xx_hal_i2c.o(i.I2C_WaitOnTXEFlagUntilTimeout))
@@ -2261,7 +2263,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[8b]"></a>AddRoundKey</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, aes.o(i.AddRoundKey))
+<P><STRONG><a name="[8c]"></a>AddRoundKey</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, aes.o(i.AddRoundKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = AddRoundKey
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvCipher
@@ -2271,10 +2273,10 @@ Local Symbols
 <P><STRONG><a name="[79]"></a>Cipher</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, aes.o(i.Cipher))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Cipher &rArr; MixColumns
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SubBytes
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShiftRows
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MixColumns
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddRoundKey
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SubBytes
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShiftRows
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MixColumns
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddRoundKey
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_encrypt_buffer
 </UL>
@@ -2285,7 +2287,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvSubBytes
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvShiftRows
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvMixColumns
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddRoundKey
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AddRoundKey
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_decrypt_buffer
 </UL>
@@ -2314,7 +2316,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
 </UL>
 
-<P><STRONG><a name="[8e]"></a>MixColumns</STRONG> (Thumb, 212 bytes, Stack size 24 bytes, aes.o(i.MixColumns))
+<P><STRONG><a name="[8f]"></a>MixColumns</STRONG> (Thumb, 212 bytes, Stack size 24 bytes, aes.o(i.MixColumns))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = MixColumns
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xtime
@@ -2322,11 +2324,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cipher
 </UL>
 
-<P><STRONG><a name="[8d]"></a>ShiftRows</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, aes.o(i.ShiftRows))
+<P><STRONG><a name="[8e]"></a>ShiftRows</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, aes.o(i.ShiftRows))
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cipher
 </UL>
 
-<P><STRONG><a name="[8c]"></a>SubBytes</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, aes.o(i.SubBytes))
+<P><STRONG><a name="[8d]"></a>SubBytes</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, aes.o(i.SubBytes))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SubBytes
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cipher
@@ -2340,7 +2342,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[fc]"></a>xtime</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aes.o(i.xtime))
-<BR><BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MixColumns
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MixColumns
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvMixColumns
 </UL>
 <P>

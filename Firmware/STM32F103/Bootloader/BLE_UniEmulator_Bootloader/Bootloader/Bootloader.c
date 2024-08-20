@@ -30,7 +30,7 @@ BootloaderMode bootloaderInit(void)
     flashStatus = FLASH_UNERASED;
 
     EEPROM_Read(0x00, (uint8_t *)&bootloaderMode, 1);
-    bootloaderMode = FlashMode;
+
     if (bootloaderMode != JumpMode)
     {
         bootloaderMode = FlashMode;

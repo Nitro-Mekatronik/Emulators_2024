@@ -36,3 +36,5 @@ ble_uniemulator_bootloader\smartled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32
 ble_uniemulator_bootloader\smartled.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 ble_uniemulator_bootloader\smartled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 ble_uniemulator_bootloader\smartled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+ble_uniemulator_bootloader\smartled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+ble_uniemulator_bootloader\smartled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

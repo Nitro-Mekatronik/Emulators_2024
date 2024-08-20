@@ -3,7 +3,7 @@
 <title>Static Call Graph - [BLE_UniEmulator_Template\BLE_UniEmulator_ESL_Chrysler.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image BLE_UniEmulator_Template\BLE_UniEmulator_ESL_Chrysler.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue May 07 16:18:47 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Jul 06 16:21:39 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1180 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -601,8 +601,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5e]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sig_exit
 </UL>
 
 <P><STRONG><a name="[71]"></a>__default_signal_display</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))
@@ -630,9 +630,9 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>AES_CBC_decrypt_buffer</STRONG> (Thumb, 66 bytes, Stack size 40 bytes, aes.o(i.AES_CBC_decrypt_buffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = AES_CBC_decrypt_buffer &rArr; InvCipher &rArr; InvMixColumns
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvCipher
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XorWithIv
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InvCipher
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
 </UL>
@@ -640,9 +640,9 @@ Global Symbols
 <P><STRONG><a name="[79]"></a>AES_CBC_encrypt_buffer</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, aes.o(i.AES_CBC_encrypt_buffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = AES_CBC_encrypt_buffer &rArr; Cipher &rArr; MixColumns
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cipher
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XorWithIv
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cipher
 </UL>
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
 </UL>
@@ -650,8 +650,8 @@ Global Symbols
 <P><STRONG><a name="[7b]"></a>AES_init_ctx_iv</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, aes.o(i.AES_init_ctx_iv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = AES_init_ctx_iv &rArr; KeyExpansion
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyExpansion
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyExpansion
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_UniqueEncryption
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
@@ -688,8 +688,8 @@ Global Symbols
 <P><STRONG><a name="[89]"></a>Check_License</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, license.o(i.Check_License))
 <BR><BR>[Stack]<UL><LI>Max Depth = 916<LI>Call Chain = Check_License &rArr; read_and_decrypt_unique_id &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_and_decrypt_unique_id
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -778,8 +778,8 @@ Global Symbols
 <P><STRONG><a name="[9e]"></a>HAL_ADC_Init</STRONG> (Thumb, 314 bytes, Stack size 24 bytes, stm32f1xx_hal_adc.o(i.HAL_ADC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = HAL_ADC_Init &rArr; HAL_ADC_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 </UL>
@@ -963,9 +963,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UB_LIN_ReceiveData
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
+<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Write
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UB_LIN_ReceiveData
 </UL>
 
 <P><STRONG><a name="[a1]"></a>HAL_GPIO_DeInit</STRONG> (Thumb, 284 bytes, Stack size 24 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_DeInit))
@@ -999,7 +999,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[74]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Update
+<BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Update
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Write
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Update
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_Protocol_Init
@@ -1010,7 +1011,6 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ConversionStop_Disable
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnTXEFlagUntilTimeout
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnRXNEFlagUntilTimeout
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnMasterAddressFlagUntilTimeout
@@ -1444,10 +1444,10 @@ Global Symbols
 <P><STRONG><a name="[85]"></a>License_Check_Unique_HASH</STRONG> (Thumb, 60 bytes, Stack size 168 bytes, license.o(i.License_Check_Unique_HASH))
 <BR><BR>[Stack]<UL><LI>Max Depth = 500<LI>Call Chain = License_Check_Unique_HASH &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_update
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_update
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_init
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sha256_final
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
 </UL>
@@ -1464,12 +1464,12 @@ Global Symbols
 <P><STRONG><a name="[82]"></a>License_UniqueEncryption</STRONG> (Thumb, 208 bytes, Stack size 312 bytes, license.o(i.License_UniqueEncryption))
 <BR><BR>[Stack]<UL><LI>Max Depth = 868<LI>Call Chain = License_UniqueEncryption &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
+<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_encrypt_buffer
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shiftArrayRight
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_key_iv
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;License_SetPrimary
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
@@ -1559,10 +1559,10 @@ Global Symbols
 <P><STRONG><a name="[80]"></a>Serial_SendString</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, serialprotocol.o(i.Serial_SendString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Serial_SendString &rArr; Serial_HeadCommand &rArr; Serial_WriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_WriteString
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_WriteString
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_WriteChecksum
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_HeadCommand
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_EvaluateCommand
 </UL>
@@ -1628,9 +1628,9 @@ Global Symbols
 <P><STRONG><a name="[127]"></a>SmartLED_Init</STRONG> (Thumb, 110 bytes, Stack size 72 bytes, smartled.o(i.SmartLED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = SmartLED_Init &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Off
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SmartLED_Off
 </UL>
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1951,13 +1951,13 @@ Global Symbols
 <P><STRONG><a name="[8a]"></a>read_and_decrypt_unique_id</STRONG> (Thumb, 182 bytes, Stack size 328 bytes, license.o(i.read_and_decrypt_unique_id))
 <BR><BR>[Stack]<UL><LI>Max Depth = 884<LI>Call Chain = read_and_decrypt_unique_id &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EEPROM_Read
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_init_ctx_iv
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AES_CBC_decrypt_buffer
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shiftArrayRight
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_key_iv
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_License
 </UL>

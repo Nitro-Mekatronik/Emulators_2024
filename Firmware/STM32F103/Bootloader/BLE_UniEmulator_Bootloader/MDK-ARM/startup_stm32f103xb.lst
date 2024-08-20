@@ -473,12 +473,11 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=ble_uniemulator_bootloader\startup_stm32f103xb.d -oble_uniemulator
-_bootloader\startup_stm32f103xb.o -I.\RTE\_BLE_UniEmulator_Bootloader -IC:\User
-s\Abdullah\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\User
-s\Abdullah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.2.0\Device\Include --pr
-edefine="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="ST
-M32F10X_MD SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f103xb.lst st
-artup_stm32f103xb.s
+_bootloader\startup_stm32f103xb.o -I.\RTE\_BLE_UniEmulator_Bootloader -IC:\Keil
+_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM3
+2F1xx_DFP\2.3.0\Device\Include --predefine="__UVISION_VERSION SETA 536" --prede
+fine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 1
+" --list=startup_stm32f103xb.lst startup_stm32f103xb.s
 
 
 

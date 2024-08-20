@@ -209,8 +209,7 @@ void UART1_Transmit_IRQ(void)
     if (UART1_TxFIFO.numBytes > 0)
     { // if data exists in the sw buffer
 
-        USART1->DR =
-            UART1_TxFIFO.data_buf[UART1_TxFIFO.idxFirst]; // place oldest data element in the TX hardware buffer
+        USART1->DR = UART1_TxFIFO.data_buf[UART1_TxFIFO.idxFirst]; // place oldest data element in the TX hardware buffer
 
         UART1_TxFIFO.idxFirst++; // increment the index of the oldest element
         UART1_TxFIFO.numBytes--; // decrement the bytes counter

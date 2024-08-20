@@ -26,7 +26,7 @@ typedef enum {
 typedef enum
 {
   JumpMode,
-	FlashMode
+	FlashMode = 0xFF
 } BootloaderMode;
 
 typedef enum

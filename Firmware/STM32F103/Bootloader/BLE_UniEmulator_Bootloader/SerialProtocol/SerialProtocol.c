@@ -170,6 +170,7 @@ void Serial_EvaluateCommand(void)
 }
 
 //**************************************************************************
+// $M>[Size][Command][PRODUCT_ID][Data Stream][checksum]
 void Serial_Decode(void)
 {
     uint16_t bytesCount = UART_Available();
@@ -286,10 +287,10 @@ uint32_t Serial_Read32(void)
 //**************************************************************************
 void Serial_WriteStr(char *str)
 {
-    do
+    while (*str)
     {
         Serial_WriteByte((unsigned char)*str++);
-    } while (*str);
+    };
 }
 
 //**************************************************************************
@@ -316,8 +317,10 @@ void Serial_Write16(uint16_t u16)
 //**************************************************************************
 void Serial_Write32(uint32_t u32)
 {
-    Serial_Write16(u32);
-    Serial_Write16(u32 >> 16);
+    Serial_WriteByte(u32);
+    Serial_WriteByte(u32 >> 8);
+	Serial_WriteByte(u32 >> 16);
+    Serial_WriteByte(u32 >> 24);
 }
 
 //**************************************************************************

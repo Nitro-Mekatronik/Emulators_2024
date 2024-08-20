@@ -5,9 +5,10 @@
  **  Author    : Eng Abdullah Jalloul
  **  Ver 1.4.0 : Add support for ProductID
  **  Ver 1.4.1 : Fixed bug in Serial_ReadStr
- **  Ver 1.5.0 : 06-05-2024 Supported multi UART, remove ProductID, Added command broadcasting, and enhanced serial send
- *functions
+ **  Ver 1.5.0 : 06-05-2024 Supported multi UART, remove ProductID, Added command broadcasting, and enhanced serial send functions
  **  Ver 1.5.1 : 07-05-2024 Added ErrorReceived
+ **  Ver 1.6.0 : 10-05-2024 Added Packet Sequence Numbers, Multi-Device Communication
+ **  Ver 1.7.0 : 17-05-2024 Added Request Retransmission, Duplicate Request Handling
  ******************************************************/
 
 #include "SerialProtocol.h"
@@ -99,72 +100,109 @@ void Serial_SetCommandList(SerialProtocol_t *hSerialProtocol, broadcastCommandLi
 
 bool Serial_Decode(SerialProtocol_t *hSerialProtocol)
 {
-
     uint16_t bytesCount = hSerialProtocol->Available();
 
     while (bytesCount--)
     {
         uint8_t c = hSerialProtocol->Read();
 
-        if (hSerialProtocol->SerialRxMsg.State == SERIAL_IDLE)
+        switch (hSerialProtocol->SerialRxMsg.State)
         {
-            hSerialProtocol->SerialRxMsg.State = (c == '$') ? SERIAL_HEADER_START : SERIAL_IDLE;
-        }
-        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_START)
-        {
-            hSerialProtocol->SerialRxMsg.State = (c == 'M') ? SERIAL_HEADER_M : SERIAL_IDLE;
-        }
-        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_M)
-        {
-            hSerialProtocol->SerialRxMsg.State = (c == '>') ? SERIAL_HEADER_M : (c == '!') ? SERIAL_HEADER_ERR : SERIAL_IDLE;
-        }
-        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ARROW) ||
-                 (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ERR))
-        {
+            case SERIAL_IDLE:
+                if (c == '$')
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_START;
+                break;
 
-            hSerialProtocol->SerialRxMsg.ErrorReceived = (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ERR);
+            case SERIAL_HEADER_START:
+									hSerialProtocol->SerialRxMsg.State = (c == 'M') ? SERIAL_HEADER_M : SERIAL_IDLE;
+                break;
 
-            if (c > SERIAL_PROTOCOL_BUF_SIZE) // now we are expecting the payload size
-            {
+            case SERIAL_HEADER_M:
+                if (c == '>') {
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_ARROW;
+									hSerialProtocol->SerialRxMsg.ErrorReceived = false;
+                } 
+								else if (c == '!') {
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_DEVICE_ERR;
+									hSerialProtocol->SerialRxMsg.ErrorReceived = true;
+                }
+								else
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
+                break;
+
+            case SERIAL_HEADER_ARROW:
+            case SERIAL_DEVICE_ERR:
+                if (c > SERIAL_PROTOCOL_BUF_SIZE)
+                {
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
+                    break;
+                }
+
+                hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_SIZE;
+                hSerialProtocol->SerialRxMsg.DataSize = c;
+                hSerialProtocol->SerialRxMsg.Offset = 0;
+                hSerialProtocol->SerialRxMsg.IndexBuf = 0;
+				hSerialProtocol->SerialRxMsg.DeviceID = 0;
+				hSerialProtocol->SerialRxMsg.SequenceNumber = 0;
+                hSerialProtocol->SerialRxMsg.Checksum = c;
+                break;
+
+            case SERIAL_HEADER_SIZE:
+                hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_CMD;
+                hSerialProtocol->SerialRxMsg.Command = c;
+                hSerialProtocol->SerialRxMsg.Checksum ^= c;
+                break;
+
+            case SERIAL_HEADER_CMD:
+                hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_SEQ;
+                hSerialProtocol->SerialRxMsg.SequenceNumber = c;
+                hSerialProtocol->SerialRxMsg.Checksum ^= c;
+                break;
+
+            case SERIAL_HEADER_SEQ:
+                hSerialProtocol->SerialRxMsg.State = SERIAL_DEVICE_ID; 
+                hSerialProtocol->SerialRxMsg.DeviceID = c;
+                hSerialProtocol->SerialRxMsg.Checksum ^= c;
+                break;
+
+            case SERIAL_DEVICE_ID:
+                if (hSerialProtocol->SerialRxMsg.Offset < hSerialProtocol->SerialRxMsg.DataSize)
+                {
+                    hSerialProtocol->SerialRxMsg.Checksum ^= c;
+                    hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.Offset++] = c;
+                }
+                else
+                {
+                    hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
+										bytesCount = 0;
+                    
+									if (hSerialProtocol->SerialRxMsg.Checksum == c)
+                    {
+                        
+											#ifdef MASTER_DEVICE
+											hSerialProtocol->isConnected = true;
+                            hSerialProtocol->ConnectionTimer = HAL_GetTick() + CONNECTION_TIMEOUT;
+                            hSerialProtocol->EvaluateCommandEvent(hSerialProtocol->SerialRxMsg.Command);
+											#else 
+											// Check for duplicate sequence number (Slave side)
+                        if (!IsDuplicateRequest(hSerialProtocol))
+                        {
+                            hSerialProtocol->isConnected = true;
+                            hSerialProtocol->ConnectionTimer = HAL_GetTick() + CONNECTION_TIMEOUT;
+                            hSerialProtocol->EvaluateCommandEvent(hSerialProtocol->SerialRxMsg.Command);
+                        } 
+											#endif
+                    }
+                }
+                break;
+
+            default:
                 hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
-                continue;
-            }
-
-            hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_SIZE;
-            hSerialProtocol->SerialRxMsg.DataSize = c;
-            hSerialProtocol->SerialRxMsg.Offset = 0;
-            hSerialProtocol->SerialRxMsg.IndexBuf = 0;
-            hSerialProtocol->SerialRxMsg.Checksum = c;
-        }
-        else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_SIZE)
-        {
-            hSerialProtocol->SerialRxMsg.State = SERIAL_HEADER_CMD;
-            hSerialProtocol->SerialRxMsg.Command = c;
-            hSerialProtocol->SerialRxMsg.Checksum ^= c;
-        }
-        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_CMD) &&
-                 (hSerialProtocol->SerialRxMsg.Offset < hSerialProtocol->SerialRxMsg.DataSize))
-        {
-            hSerialProtocol->SerialRxMsg.Checksum ^= c;
-            hSerialProtocol->SerialRxMsg.DataBuffer[hSerialProtocol->SerialRxMsg.Offset++] = c;
-        }
-        else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_CMD) &&
-                 (hSerialProtocol->SerialRxMsg.Offset >= hSerialProtocol->SerialRxMsg.DataSize))
-        {
-            hSerialProtocol->SerialRxMsg.State = SERIAL_IDLE;
-
-            if (hSerialProtocol->SerialRxMsg.Checksum == c) // compare calculated and transferred checksum
-            {
-                hSerialProtocol->isConnected = true;
-                hSerialProtocol->ConnectionTimer = HAL_GetTick() + CONNECTION_TIMEOUT;
-                hSerialProtocol->EvaluateCommandEvent(hSerialProtocol->SerialRxMsg.Command);
-            }
-
-            bytesCount = 0;
+                break;
         }
     }
 
-    return !hSerialProtocol->SerialRxMsg.ErrorReceived; // true:No Error , false:Error Received
+    return !hSerialProtocol->SerialRxMsg.ErrorReceived;
 }
 
 //**************************************************************************

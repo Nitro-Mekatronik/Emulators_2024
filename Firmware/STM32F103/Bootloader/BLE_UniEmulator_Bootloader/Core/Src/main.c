@@ -162,9 +162,9 @@ int main(void)
         Error_Handler(); // Handle initialization failure
     } 
 		
-    SmartLED_Init(LED_R_GPIO_Port, LED_R_Pin, true, &LED_Red_Callback);
-    SmartLED_Init(LED_G_GPIO_Port, LED_G_Pin, true, NULL);
-    SmartLED_Init(LED_B_GPIO_Port, LED_B_Pin, true, NULL);
+    SmartLED_Init(LED_R_GPIO_Port, LED_R_Pin, true, &LED_Red_Callback, NULL);
+    SmartLED_Init(LED_G_GPIO_Port, LED_G_Pin, true, NULL, NULL);
+    SmartLED_Init(LED_B_GPIO_Port, LED_B_Pin, true, NULL, NULL);
 
     SmartLED_SetMode(LED_R, LED_MODE_BLINK_SLOW);
 
