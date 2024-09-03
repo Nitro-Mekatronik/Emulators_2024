@@ -45,6 +45,9 @@ p_function boot_entry;
 
 // https://github.com/gbesnard/stm32f1-bootloader/tree/master
 #define BOOTLOADER_START_ADDRESS 0x08000000
+#define BOOTLOADER_SIZE 0x8000 // 32KB
+#define APPLICATION_START_ADDRESS BOOTLOADER_START_ADDRESS + BOOTLOADER_SIZE
+#define APPLICATION_SIZE 0x018000 // 96KB => 98304 Bytes
 
 /* USER CODE END PTD */
 
@@ -206,6 +209,7 @@ void BLE_EvaluateCommand(uint8_t cmd)
     }
 
     case SERIAL_ACTIVATE_BOOTLOADER: {
+        isRealServer = true; // for testing
         Serial_SendUint8(&BLE_Serial, SERIAL_ACTIVATE_BOOTLOADER, (uint8_t)isRealServer);
         if (isRealServer)
         {
@@ -262,6 +266,7 @@ void BLE_EvaluateCommand(uint8_t cmd)
  */
 int main(void)
 {
+
     /* USER CODE BEGIN 1 */
 
     /* USER CODE END 1 */
@@ -739,7 +744,7 @@ static void MX_USART3_UART_Init(void)
     huart3.Init.BaudRate = 9600;
     huart3.Init.WordLength = UART_WORDLENGTH_8B;
     huart3.Init.StopBits = UART_STOPBITS_1;
-    huart3.Init.Parity = UART_PARITY_NONE;
+    huart3.Init.Parity = UART_PARITY_EVEN;
     huart3.Init.Mode = UART_MODE_TX_RX;
     huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
     huart3.Init.OverSampling = UART_OVERSAMPLING_16;
@@ -788,7 +793,7 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOC, BLE_nRST_Pin | BLE_AT_MODE_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOC, BLE_nRST_Pin | BLE_AT_MODE_Pin, GPIO_PIN_SET);
 
     /*Configure GPIO pin Output Level */
     HAL_GPIO_WritePin(GPIOB, KLINE_MODE_Pin | DO1_Pin | DO2_Pin | LED_G_Pin | LED_R_Pin, GPIO_PIN_RESET);

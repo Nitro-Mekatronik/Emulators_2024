@@ -82,15 +82,17 @@ uint8_t Check_License(void)
 {
     uint8_t unique[UNIQUE_ID_LENGTH];            // Device's unique ID
     uint8_t EEPROM_Unique[UNIQUE_ID_LENGTH + 2]; // Unique ID read from EEPROM
+	
 
-    LicenseStatus = FAKE;
+	
+    LicenseStatus = VALID; // FAKE; // for testing
 
     // Read and decrypt the unique ID from EEPROM
     if (read_and_decrypt_unique_id(EEPROM_Unique, UNIQUE_ID_LENGTH + 2) == 0)
     {
         // Copy the device's unique ID
         memcpy(unique, (void *)(UID_BASE), UNIQUE_ID_LENGTH);
-
+			
         // Check if the IDs match
         if (memcmp(unique, &EEPROM_Unique[2], UNIQUE_ID_LENGTH) == 0)
         {

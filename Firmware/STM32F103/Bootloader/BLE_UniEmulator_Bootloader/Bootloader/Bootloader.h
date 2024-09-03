@@ -9,9 +9,9 @@
 #define BOOTLOADER_MINOR 0
 
 #define BOOTLOADER_START_ADDRESS  0x08000000
-#define APPLICATION_START_ADDRESS 0x08007000 // Origin + Bootloader size (28kB)
+#define APPLICATION_START_ADDRESS 0x08008000 // Origin + Bootloader size (28kB)
 #define FLASH_PAGE_SIZE_USER           0x400 // 1kB
-#define FLASH_BANK_SIZE              0x19000 // 100kB
+#define FLASH_BANK_SIZE              0x18000 // 100kB
 
 #define MAX_FLASH_ATTEMPTS    10
 #define WORD_OFFSET_INCREMENT 4

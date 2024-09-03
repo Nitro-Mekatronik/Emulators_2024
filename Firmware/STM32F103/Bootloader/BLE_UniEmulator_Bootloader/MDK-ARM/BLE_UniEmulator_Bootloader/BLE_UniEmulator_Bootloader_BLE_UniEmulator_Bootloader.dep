@@ -36,7 +36,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x661D82EE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x661D82EE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x661D82EE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x661D82EE)
-I (../Bootloader/Bootloader.h)(0x66C4EED2)
+I (../Bootloader/Bootloader.h)(0x66CE66BB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../EEPROM/EEPROM.h)(0x661D82EE)
@@ -837,7 +837,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x661D82EE)
 F (..\SerialProtocol\SerialProtocol.c)(0x66902E92)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Bootloader -I ../Crypto_Algorithms -I ../EEPROM -I ../License -I ../SerialFIFO -I ../SerialProtocol -I ../SmartLED-I.\RTE\_BLE_UniEmulator_Bootloader-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_bootloader\serialprotocol.o --omf_browse ble_uniemulator_bootloader\serialprotocol.crf --depend ble_uniemulator_bootloader\serialprotocol.d)
 I (..\SerialProtocol\SerialProtocol.h)(0x661D82EE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
-I (../Bootloader/Bootloader.h)(0x66C4EED2)
+I (../Bootloader/Bootloader.h)(0x66CE66BB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
 I (../License/License.h)(0x661D82EE)
@@ -879,8 +879,8 @@ I (../Core/Inc/main.h)(0x661D82ED)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 F (..\SerialProtocol\SerialProtocol.h)(0x661D82EE)()
-F (..\Bootloader\Bootloader.c)(0x66C4EED2)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Bootloader -I ../Crypto_Algorithms -I ../EEPROM -I ../License -I ../SerialFIFO -I ../SerialProtocol -I ../SmartLED-I.\RTE\_BLE_UniEmulator_Bootloader-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_bootloader\bootloader.o --omf_browse ble_uniemulator_bootloader\bootloader.crf --depend ble_uniemulator_bootloader\bootloader.d)
-I (..\Bootloader\Bootloader.h)(0x66C4EED2)
+F (..\Bootloader\Bootloader.c)(0x66CF12EA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Bootloader -I ../Crypto_Algorithms -I ../EEPROM -I ../License -I ../SerialFIFO -I ../SerialProtocol -I ../SmartLED-I.\RTE\_BLE_UniEmulator_Bootloader-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_bootloader\bootloader.o --omf_browse ble_uniemulator_bootloader\bootloader.crf --depend ble_uniemulator_bootloader\bootloader.d)
+I (..\Bootloader\Bootloader.h)(0x66CE66BB)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)
@@ -919,7 +919,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x661D82EE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x661D82EE)
 I (../SmartLED/SmartLED.h)(0x6647D85B)
 I (../Core/Inc/main.h)(0x661D82ED)
-F (..\Bootloader\Bootloader.h)(0x66C4EED2)()
+F (..\Bootloader\Bootloader.h)(0x66CE66BB)()
 F (..\License\License.c)(0x661D82EE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../Bootloader -I ../Crypto_Algorithms -I ../EEPROM -I ../License -I ../SerialFIFO -I ../SerialProtocol -I ../SmartLED-I.\RTE\_BLE_UniEmulator_Bootloader-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o ble_uniemulator_bootloader\license.o --omf_browse ble_uniemulator_bootloader\license.crf --depend ble_uniemulator_bootloader\license.d)
 I (..\License\License.h)(0x661D82EE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x602569CC)

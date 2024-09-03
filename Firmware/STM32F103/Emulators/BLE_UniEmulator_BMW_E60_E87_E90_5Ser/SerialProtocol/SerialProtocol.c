@@ -116,7 +116,7 @@ bool Serial_Decode(SerialProtocol_t *hSerialProtocol)
         }
         else if (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_M)
         {
-            hSerialProtocol->SerialRxMsg.State = (c == '>') ? SERIAL_HEADER_M : (c == '!') ? SERIAL_HEADER_ERR : SERIAL_IDLE;
+            hSerialProtocol->SerialRxMsg.State = (c == '>') ? SERIAL_HEADER_ARROW : (c == '!') ? SERIAL_HEADER_ERR : SERIAL_IDLE;
         }
         else if ((hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ARROW) ||
                  (hSerialProtocol->SerialRxMsg.State == SERIAL_HEADER_ERR))
