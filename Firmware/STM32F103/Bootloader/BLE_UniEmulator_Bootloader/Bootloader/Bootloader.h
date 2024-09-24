@@ -9,9 +9,9 @@
 #define BOOTLOADER_MINOR 0
 
 #define BOOTLOADER_START_ADDRESS  0x08000000
-#define APPLICATION_START_ADDRESS 0x08008000 // Origin + Bootloader size (28kB)
+#define APPLICATION_START_ADDRESS 0x08008000 // Origin + Bootloader size (32kB)
 #define FLASH_PAGE_SIZE_USER           0x400 // 1kB
-#define FLASH_BANK_SIZE              0x18000 // 100kB
+#define FLASH_BANK_SIZE              0x18000 // 96kB
 
 #define MAX_FLASH_ATTEMPTS    10
 #define WORD_OFFSET_INCREMENT 4
@@ -25,8 +25,8 @@ typedef enum {
 
 typedef enum
 {
-  JumpMode,
-	FlashMode = 0xFF
+  JUMP_MODE = 0x3D,
+	FLASH_MODE = 0xFF
 } BootloaderMode;
 
 typedef enum

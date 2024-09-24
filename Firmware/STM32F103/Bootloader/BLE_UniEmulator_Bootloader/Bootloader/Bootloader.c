@@ -3,25 +3,19 @@
 #include "SmartLED.h"
 #include "main.h"
 
-extern ADC_HandleTypeDef hadc1;
-
-extern CAN_HandleTypeDef hcan;
-
 extern CRC_HandleTypeDef hcrc;
 
 extern I2C_HandleTypeDef hi2c1;
 
-extern SPI_HandleTypeDef hspi1;
-
+//extern RTC_HandleTypeDef hrtc;
 extern TIM_HandleTypeDef htim3;
-extern TIM_HandleTypeDef htim4;
+
 
 extern UART_HandleTypeDef huart1;
-extern UART_HandleTypeDef huart3;
 
 uint32_t Flashed_offset;
 Flash_Status flashStatus;
-BootloaderMode bootloaderMode = JumpMode;
+BootloaderMode bootloaderMode = JUMP_MODE;
 
 BootloaderMode bootloaderInit(void)
 {
@@ -29,12 +23,14 @@ BootloaderMode bootloaderInit(void)
     Flashed_offset = 0;
     flashStatus = FLASH_UNERASED;
 
+//		bootloaderMode = (BootloaderMode)(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) & 0xFF);
+	
     EEPROM_Read(0x00, (uint8_t *)&bootloaderMode, 1);
 //bootloaderMode = JumpMode;
 	
-    if (bootloaderMode != JumpMode)
+    if (bootloaderMode != JUMP_MODE)
     {
-        bootloaderMode = FlashMode;
+        bootloaderMode = FLASH_MODE;
         //		SmartLED_SetMode(LED_B, LED_MODE_BLINK_SLOW);
     }
     else // Jump Mode
@@ -195,12 +191,13 @@ void jumpToApp(void)
     application_t app_entry;
     uint32_t app_stack;
 
-    if (bootloaderMode == FlashMode)
+    if (bootloaderMode == FLASH_MODE)
     {
-        bootloaderMode = JumpMode;
+        bootloaderMode = JUMP_MODE;
+//			HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR1, (uint32_t)JumpMode);
         EEPROM_Write(0x00, (uint8_t *)&bootloaderMode, 1);
     }
-
+//HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR2, HAL_GetTick());
     deinitEverything();
 
     // Set HSION bit.
@@ -243,15 +240,10 @@ void deinitEverything()
     HAL_GPIO_DeInit(LED_R_GPIO_Port, LED_R_Pin);
     HAL_GPIO_DeInit(LED_G_GPIO_Port, LED_G_Pin);
     HAL_GPIO_DeInit(LED_B_GPIO_Port, LED_B_Pin);
-    HAL_ADC_MspDeInit(&hadc1);
-    HAL_CAN_MspDeInit(&hcan);
     HAL_CRC_MspDeInit(&hcrc);
     HAL_I2C_MspDeInit(&hi2c1);
-    HAL_SPI_MspDeInit(&hspi1);
     HAL_TIM_MspPostInit(&htim3);
-    HAL_TIM_MspPostInit(&htim4);
     HAL_UART_MspDeInit(&huart1);
-    HAL_UART_MspDeInit(&huart3);
 
     HAL_NVIC_DisableIRQ(DMA1_Channel3_IRQn);
     HAL_NVIC_DisableIRQ(DMA1_Channel5_IRQn);
