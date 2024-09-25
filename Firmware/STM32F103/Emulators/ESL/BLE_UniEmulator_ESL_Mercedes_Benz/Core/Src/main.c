@@ -194,6 +194,7 @@ void BLE_EvaluateCommand(uint8_t cmd)
     }
 
     case SERIAL_ACTIVATE_BOOTLOADER: {
+				isRealServer = true; // for testing
         Serial_SendUint8(&BLE_Serial, SERIAL_ACTIVATE_BOOTLOADER, (uint8_t)isRealServer);
         if (isRealServer)
         {

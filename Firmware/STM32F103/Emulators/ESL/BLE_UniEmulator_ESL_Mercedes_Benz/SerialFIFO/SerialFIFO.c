@@ -118,7 +118,7 @@ bool UART1_ReadStr(char *str, int maxLength, uint32_t timeout)
 uint8_t UART1_Write(uint8_t byte)
 {
 		uint32_t startTime = HAL_GetTick();
-    uint32_t timeout = 50; // Timeout in milliseconds
+    uint32_t timeout = 100; // Timeout in milliseconds
 		
 	// Wait until space is available in the buffer or timeout
     while (UART1_TxFIFO.numBytes == FIFO_BUFFER_SIZE) {

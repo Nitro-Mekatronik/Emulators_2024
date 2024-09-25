@@ -3,7 +3,7 @@
 <title>Static Call Graph - [BLE_UniEmulator_Template\BLE_UniEmulator_ESL_Mercedes_Benz.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image BLE_UniEmulator_Template\BLE_UniEmulator_ESL_Mercedes_Benz.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon Sep 23 17:29:56 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Sep 25 11:14:22 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1180 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -656,7 +656,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[44]"></a>BLE_EvaluateCommand</STRONG> (Thumb, 484 bytes, Stack size 280 bytes, main.o(i.BLE_EvaluateCommand))
+<P><STRONG><a name="[44]"></a>BLE_EvaluateCommand</STRONG> (Thumb, 490 bytes, Stack size 280 bytes, main.o(i.BLE_EvaluateCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1180<LI>Call Chain = BLE_EvaluateCommand &rArr; License_SetPrimary &rArr; License_UniqueEncryption &rArr; create_key_iv &rArr; sha256_update &rArr; sha256_transform
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_SendUint8
@@ -1566,7 +1566,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[46]"></a>UART1_Read</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, serialfifo.o(i.UART1_Read))
+<P><STRONG><a name="[46]"></a>UART1_Read</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, serialfifo.o(i.UART1_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART1_Read &rArr; HAL_NVIC_DisableIRQ
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
@@ -1574,11 +1574,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[114]"></a>UART1_Transmit_IRQ</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, serialfifo.o(i.UART1_Transmit_IRQ))
+<P><STRONG><a name="[114]"></a>UART1_Transmit_IRQ</STRONG> (Thumb, 146 bytes, Stack size 0 bytes, serialfifo.o(i.UART1_Transmit_IRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[45]"></a>UART1_Write</STRONG> (Thumb, 244 bytes, Stack size 16 bytes, serialfifo.o(i.UART1_Write))
+<P><STRONG><a name="[45]"></a>UART1_Write</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, serialfifo.o(i.UART1_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART1_Write &rArr; HAL_NVIC_DisableIRQ
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
@@ -1599,7 +1599,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MB_Init
 </UL>
 
-<P><STRONG><a name="[ef]"></a>UART3_Read</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, serialfifo.o(i.UART3_Read))
+<P><STRONG><a name="[ef]"></a>UART3_Read</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, serialfifo.o(i.UART3_Read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART3_Read &rArr; HAL_NVIC_DisableIRQ
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
@@ -1608,11 +1608,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MB_USART_Receive
 </UL>
 
-<P><STRONG><a name="[115]"></a>UART3_Transmit_IRQ</STRONG> (Thumb, 150 bytes, Stack size 0 bytes, serialfifo.o(i.UART3_Transmit_IRQ))
+<P><STRONG><a name="[115]"></a>UART3_Transmit_IRQ</STRONG> (Thumb, 146 bytes, Stack size 0 bytes, serialfifo.o(i.UART3_Transmit_IRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
 </UL>
 
-<P><STRONG><a name="[f1]"></a>UART3_Write</STRONG> (Thumb, 244 bytes, Stack size 16 bytes, serialfifo.o(i.UART3_Write))
+<P><STRONG><a name="[f1]"></a>UART3_Write</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, serialfifo.o(i.UART3_Write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART3_Write &rArr; HAL_NVIC_DisableIRQ
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ

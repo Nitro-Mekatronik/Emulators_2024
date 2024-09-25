@@ -6,9 +6,9 @@
 
 #define ESL_UART3
 
-#define DMA_RX1_BUFFER_SIZE 128
+#define DMA_RX1_BUFFER_SIZE  64
 #define DMA_RX3_BUFFER_SIZE  32
-#define FIFO_BUFFER_SIZE    256
+#define FIFO_BUFFER_SIZE    128
 
 typedef enum
 {
