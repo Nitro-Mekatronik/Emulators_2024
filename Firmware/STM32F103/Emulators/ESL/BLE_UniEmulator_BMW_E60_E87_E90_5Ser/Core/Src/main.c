@@ -822,12 +822,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(BLE_STATUS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : BLE_nRST_Pin BLE_AT_MODE_Pin */
-  GPIO_InitStruct.Pin = BLE_nRST_Pin|BLE_AT_MODE_Pin;
+  /*Configure GPIO pin : BLE_nRST_Pin */
+  GPIO_InitStruct.Pin = BLE_nRST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(BLE_nRST_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : BLE_AT_MODE_Pin */
+  GPIO_InitStruct.Pin = BLE_AT_MODE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(BLE_AT_MODE_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB0 */
   GPIO_InitStruct.Pin = GPIO_PIN_0;
