@@ -4,8 +4,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define DMA_RX1_BUFFER_SIZE 256
-#define FIFO_BUFFER_SIZE 512
+#define DMA_RX1_BUFFER_SIZE 64
+#define FIFO_BUFFER_SIZE 128
 
 typedef enum
 {
