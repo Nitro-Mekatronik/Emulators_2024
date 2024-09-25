@@ -457,7 +457,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, BLE_nRST_Pin|BLE_AT_MODE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(BLE_nRST_GPIO_Port, BLE_nRST_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BLE_AT_MODE_GPIO_Port, BLE_AT_MODE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, KLINE_MODE_Pin|DO1_Pin|DO2_Pin|LED_G_Pin
