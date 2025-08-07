@@ -62,7 +62,7 @@ Main emulator board design
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/Emulators_2024.git
+git clone https://github.com/Nitro-Mekatronik/Emulators_2024.git
 ```
 
 2. For firmware development:

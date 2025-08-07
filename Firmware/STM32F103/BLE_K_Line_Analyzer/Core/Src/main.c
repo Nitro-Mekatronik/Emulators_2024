@@ -104,16 +104,14 @@ void LED_Red_Callback(bool status)
     }
 }
 
-// Yeşil LED için callback fonksiyonu - gelecekte kullanılabilir
 void LED_Green_Callback(bool status)
 {
-    // Gelecekte yeşil LED için özel işlevsellik eklenebilir
+    // Future functionality for green LED can be added here
 }
 
-// Mavi LED için callback fonksiyonu - gelecekte kullanılabilir
 void LED_Blue_Callback(bool status)
 {
-    // Gelecekte mavi LED için özel işlevsellik eklenebilir
+    // Future functionality for blue LED can be added here
 }
 
 /* USER CODE END PFP */
@@ -212,7 +210,7 @@ int main(void)
 
     HAL_Delay(20);
 
-    UART1_WriteStr("AT+NAMESmart Emulator\r\n"); // Bluetooth cihaz adını ayarla
+    UART1_WriteStr("AT+NAMESmart Emulator\r\n"); // Set Bluetooth device name
     HAL_Delay(100);
 
     UART1_WriteStr("AT+STARTEN1\r\n"); // 1 = Start Wake up
@@ -793,28 +791,28 @@ void deinitEverything(void)
  * @retval None
  */
 /**
- * @brief Hata durumunda çağrılan fonksiyon
- * @details Bu fonksiyon bir hata oluştuğunda:
- *          1. Kesmeleri devre dışı bırakır
- *          2. Kırmızı LED'i hızlı yanıp söndürür
- *          3. Buzzer'ı çalıştırır
- *          4. Sonsuz döngüye girer
+ * @brief Function called in case of error
+ * @details This function:
+ *          1. Disables interrupts
+ *          2. Sets red LED to fast blink mode
+ *          3. Activates buzzer
+ *          4. Enters infinite loop
  * @retval None
  */
 void Error_Handler(void)
 {
     /* USER CODE BEGIN Error_Handler_Debug */
-    __disable_irq(); // Kesmeleri devre dışı bırak
+    __disable_irq(); // Disable interrupts
     
-    // Kırmızı LED'i hızlı yanıp sönme moduna al
+    // Set red LED to fast blink mode
     SmartLED_SetMode(LED_R, LED_MODE_BLINK_FAST);
     
-    // Buzzer'ı çalıştır
+    // Activate buzzer
     BUZZER_ON();
     
     while (1)
     {
-        // Watchdog'u resetle (eğer kullanılıyorsa)
+        // Reset watchdog (if used)
         // HAL_IWDG_Refresh(&hiwdg);
     }
     /* USER CODE END Error_Handler_Debug */
