@@ -1,0 +1,77 @@
+# STM32CubeIDE specific
+.settings/
+.project
+.cproject
+.mxproject
+Debug/
+Release/
+*.launch
+
+# KiCad specific
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+*.kicad_prl
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+*-bak
+*.net
+*.dsn
+*.ses
+*.xml
+
+# Gerber files
+*.gbr
+*.drl
+*.gbl
+*.gtl
+*.gbs
+*.gts
+*.gbo
+*.gto
+*.gbp
+*.gtp
+*.gm1
+*.gm2
+*.gm3
+*.gm4
+
+# Build outputs
+*.o
+*.d
+*.hex
+*.bin
+*.elf
+*.list
+*.map
+
+# IDE specific
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Misc
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# Configuration files
+*.ods
+*.xlsx
+*.xls
+*.csv
+credentials.txt
+secrets.txt
+*.key
+*.pem

@@ -1,0 +1,8 @@
+BMW Steering Lock Emulator
+
+3-Series : BMW E60, BMW E61, BMW E62, BMW E63, BMW E64
+
+5-Series : BMW E81, BMW E87, BMW E90, BMW E92, BMW E93
+
+Mini Cooper : R55, R56
+

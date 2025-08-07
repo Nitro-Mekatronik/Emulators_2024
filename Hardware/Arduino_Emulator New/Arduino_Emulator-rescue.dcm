@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MCP2515-mcp2515-est-adBlue-rescue
+F http://ww1.microchip.com/downloads/en/devicedoc/21801d.pdf
+$ENDCMP
+#
+$CMP MP2467-MonolithicPower-adBlue-rescue
+F https://media.monolithicpower.com/document/MP2467_r1.11.pdf
+$ENDCMP
+#
+#End Doc Library
